@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chez Moi - French Lessons</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>French Adjectives - Learn with Fun! 🇬🇭🇫🇷</title>
     <style>
         * {
             margin: 0;
@@ -14,1115 +13,1632 @@
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background: linear-gradient(to bottom right, #f0fdf4, #fefce8);
+            background: linear-gradient(135deg, #CE1126 0%, #FCD116 25%, #006B3F 75%, #000000 100%);
             min-height: 100vh;
+            padding: 20px;
         }
 
-        /* Ghana Flag Header */
-        .flag-header {
-            height: 12px;
-            display: flex;
-        }
-
-        .flag-red {
-            flex: 1;
-            background-color: #ef4444;
-        }
-
-        .flag-yellow {
-            flex: 1;
-            background-color: #eab308;
-        }
-
-        .flag-green {
-            flex: 1;
-            background-color: #16a34a;
-        }
-
-        /* Navigation */
-        nav {
-            background-color: white;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-            position: sticky;
-            top: 0;
-            z-index: 50;
-        }
-
-        .nav-container {
+        .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 1rem;
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        header {
+            text-align: center;
+            padding: 20px;
+            background: linear-gradient(90deg, #CE1126, #FCD116, #006B3F);
+            border-radius: 15px;
+            margin-bottom: 30px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        h1 {
+            color: white;
+            font-size: 2.5em;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .subtitle {
+            color: white;
+            font-size: 1.2em;
+            margin-top: 10px;
+        }
+
+        .tab-buttons {
             display: flex;
-            align-items: center;
-            justify-content: space-between;
+            gap: 10px;
+            margin-bottom: 20px;
             flex-wrap: wrap;
-            gap: 1rem;
+            justify-content: center;
         }
 
-        .nav-title {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: #1f2937;
-            display: flex;
-            align-items: center;
-        }
-
-        .nav-title i {
-            margin-right: 0.5rem;
-            color: #ef4444;
-        }
-
-        .nav-buttons {
-            display: flex;
-            gap: 0.5rem;
-            flex-wrap: wrap;
-        }
-
-        .nav-btn {
-            padding: 0.5rem 1rem;
-            border-radius: 0.5rem;
-            font-weight: 600;
-            transition: all 0.3s;
+        .tab-btn {
+            padding: 15px 25px;
             border: none;
+            background: #006B3F;
+            color: white;
+            font-size: 1.1em;
+            border-radius: 10px;
             cursor: pointer;
+            transition: all 0.3s;
+            font-weight: bold;
         }
 
-        .nav-btn.active {
-            background-color: #ef4444;
-            color: white;
+        .tab-btn:hover {
+            background: #FCD116;
+            color: #000;
+            transform: translateY(-3px);
         }
 
-        .nav-btn:not(.active) {
-            background-color: #e5e7eb;
-            color: #4b5563;
+        .tab-btn.active {
+            background: #CE1126;
+            transform: scale(1.05);
         }
 
-        .nav-btn:not(.active):hover {
-            background-color: #eab308;
-            color: white;
-        }
-
-        /* Main Content */
-        main {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 2rem 1rem;
-        }
-
-        /* Section Styling */
-        .section {
+        .tab-content {
             display: none;
-            animation: fadeIn 0.5s ease-out;
+            animation: fadeIn 0.5s;
         }
 
-        .section.active {
+        .tab-content.active {
             display: block;
         }
 
         @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(to right, #ef4444, #eab308);
+        .section {
+            background: #f9f9f9;
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 25px;
+            border-left: 5px solid #006B3F;
+        }
+
+        h2 {
+            color: #CE1126;
+            font-size: 2em;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        h3 {
+            color: #006B3F;
+            font-size: 1.5em;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+
+        .example-box {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 15px 0;
+            border: 3px solid #FCD116;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .example-item {
+            font-size: 1.2em;
+            margin: 10px 0;
+            padding: 10px;
+            background: #fffef0;
+            border-radius: 5px;
+        }
+
+        .french {
+            color: #CE1126;
+            font-weight: bold;
+            font-size: 1.3em;
+        }
+
+        .english {
+            color: #006B3F;
+            font-style: italic;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        th {
+            background: #CE1126;
             color: white;
-            padding: 2rem;
-            border-radius: 0.5rem;
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-            margin-bottom: 1.5rem;
+            padding: 15px;
+            font-size: 1.2em;
         }
 
-        .hero-icon {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 1rem;
+        td {
+            padding: 15px;
+            border: 1px solid #ddd;
+            font-size: 1.1em;
         }
 
-        .hero h1 {
-            font-size: 2.25rem;
-            font-weight: bold;
-            text-align: center;
-            margin-bottom: 1rem;
+        tr:nth-child(even) {
+            background: #f9f9f9;
         }
 
-        .hero h2 {
-            font-size: 1.875rem;
-            text-align: center;
-            margin-bottom: 0.5rem;
-        }
-
-        .hero p {
-            font-size: 1.25rem;
-            text-align: center;
-        }
-
-        /* Card Styling */
-        .card {
-            background-color: white;
-            border-radius: 0.5rem;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-            padding: 1.5rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .card h3 {
-            font-size: 1.5rem;
-            font-weight: bold;
-            margin-bottom: 1rem;
-        }
-
-        .card ul {
-            list-style-type: none;
-        }
-
-        .card li {
-            display: flex;
-            align-items: center;
-            margin-bottom: 0.75rem;
-            font-size: 1.125rem;
-        }
-
-        .card li i {
-            margin-right: 0.75rem;
-        }
-
-        .tip-card {
-            background-color: #fefce8;
-            border: 2px solid #eab308;
-            border-radius: 0.5rem;
-            padding: 1.5rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .tip-card h3 {
-            font-size: 1.25rem;
-            font-weight: bold;
-            margin-bottom: 0.75rem;
-            color: #1f2937;
-        }
-
-        .tip-card p {
-            font-size: 1.125rem;
-            color: #4b5563;
-        }
-
-        /* Vocabulary Section */
-        .vocab-header {
-            background: linear-gradient(to right, #16a34a, #eab308);
-            color: white;
-            padding: 1.5rem;
-            border-radius: 0.5rem;
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-            margin-bottom: 2rem;
-        }
-
-        .vocab-header h2 {
-            font-size: 1.875rem;
-            font-weight: bold;
-            text-align: center;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .vocab-header i {
-            margin-right: 0.75rem;
-        }
-
-        .room-section {
-            padding: 1.5rem;
-            border-radius: 0.5rem;
-            margin-bottom: 2rem;
-            border-left: 4px solid;
-        }
-
-        .bathroom {
-            background-color: #eff6ff;
-            border-left-color: #ef4444;
-        }
-
-        .bedroom {
-            background-color: #faf5ff;
-            border-left-color: #16a34a;
-        }
-
-        .kitchen {
-            background-color: #fff7ed;
-            border-left-color: #eab308;
-        }
-
-        .living-room {
-            background-color: #f0fdf4;
-            border-left-color: #1f2937;
-        }
-
-        .room-title {
-            font-size: 1.5rem;
-            font-weight: bold;
-            margin-bottom: 1rem;
-            display: flex;
-            align-items: center;
-        }
-
-        .room-title button {
-            margin-left: 0.75rem;
-            background-color: inherit;
-            border: none;
+        tr:hover {
+            background: #FCD116;
             cursor: pointer;
-            color: inherit;
-            padding: 0.5rem;
-            border-radius: 50%;
-            transition: background-color 0.3s;
         }
 
-        .room-title button:hover {
-            background-color: rgba(255, 255, 255, 0.3);
-        }
-
-        .vocab-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 1rem;
-        }
-
-        @media (min-width: 768px) {
-            .vocab-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        @media (min-width: 1024px) {
-            .vocab-grid {
-                grid-template-columns: repeat(3, 1fr);
-            }
-        }
-
-        .vocab-card {
-            background-color: white;
-            border-radius: 0.5rem;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-            padding: 1rem;
-            border-left: 4px solid #eab308;
-            transition: box-shadow 0.3s;
-        }
-
-        .vocab-card:hover {
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
-        }
-
-        .vocab-card-header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 0.5rem;
-        }
-
-        .vocab-card h3 {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: #15803d;
-        }
-
-        .vocab-card button {
-            background-color: #ef4444;
-            color: white;
-            border: none;
-            padding: 0.5rem;
-            border-radius: 50%;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-
-        .vocab-card button:hover {
-            background-color: #dc2626;
-        }
-
-        .vocab-card p {
-            color: #6b7280;
-            font-size: 0.875rem;
-            margin-bottom: 0.25rem;
-        }
-
-        .vocab-card .english {
-            font-size: 1.125rem;
-            color: #374151;
-        }
-
-        /* Grammar Section */
-        .grammar-header {
-            background: linear-gradient(to right, #eab308, #ef4444);
-            color: white;
-            padding: 1.5rem;
-            border-radius: 0.5rem;
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-            margin-bottom: 1.5rem;
-        }
-
-        .grammar-header h2 {
-            font-size: 1.875rem;
-            font-weight: bold;
-            text-align: center;
-        }
-
-        .grammar-card {
-            background-color: white;
-            border-radius: 0.5rem;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-            padding: 1.5rem;
-            margin-bottom: 1.5rem;
-            border-top: 4px solid #16a34a;
-        }
-
-        .grammar-card h3 {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: #15803d;
-            margin-bottom: 1rem;
-        }
-
-        .grammar-card p {
-            font-size: 1.125rem;
-            color: #4b5563;
-            margin-bottom: 1rem;
-        }
-
-        .article-section {
-            padding: 1rem;
-            border-radius: 0.5rem;
-            margin-bottom: 1rem;
-            border-left: 4px solid;
-        }
-
-        .masculine {
-            background-color: #fef2f2;
-            border-left-color: #ef4444;
-        }
-
-        .feminine {
-            background-color: #fefce8;
-            border-left-color: #eab308;
-        }
-
-        .vowel {
-            background-color: #f0fdf4;
-            border-left-color: #16a34a;
-        }
-
-        .article-section h4 {
-            font-size: 1.25rem;
-            font-weight: bold;
-            margin-bottom: 0.5rem;
-        }
-
-        .article-section p {
-            margin-bottom: 0.5rem;
-        }
-
-        .remember-card {
-            background-color: #1f2937;
-            color: #eab308;
-            padding: 1.5rem;
-            border-radius: 0.5rem;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-        }
-
-        .remember-card h3 {
-            font-size: 1.25rem;
-            font-weight: bold;
-            margin-bottom: 0.75rem;
-        }
-
-        .remember-card p {
-            font-size: 1.125rem;
-        }
-
-        /* Practice Section */
-        .practice-header {
-            background: linear-gradient(to right, #16a34a, #eab308);
-            color: white;
-            padding: 1.5rem;
-            border-radius: 0.5rem;
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-            margin-bottom: 1.5rem;
-        }
-
-        .practice-header h2 {
-            font-size: 1.875rem;
-            font-weight: bold;
-            text-align: center;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .practice-header i {
-            margin-right: 0.75rem;
-        }
-
-        .practice-card {
-            background-color: white;
-            border-radius: 0.5rem;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-            padding: 1.5rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .practice-card h3 {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: #ef4444;
-            margin-bottom: 1.5rem;
+        .quiz-container {
+            background: linear-gradient(135deg, #fff 0%, #fffef0 100%);
+            padding: 25px;
+            border-radius: 15px;
+            border: 3px solid #006B3F;
         }
 
         .question {
-            margin-bottom: 1.5rem;
-            padding: 1rem;
-            background-color: #f9fafb;
-            border-radius: 0.5rem;
-            border: 2px solid #eab308;
+            font-size: 1.3em;
+            color: #000;
+            margin-bottom: 20px;
+            padding: 15px;
+            background: white;
+            border-radius: 10px;
+            border-left: 5px solid #CE1126;
         }
 
-        .question-header {
+        .options {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .option-btn {
+            padding: 20px;
+            border: 3px solid #006B3F;
+            background: white;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 1.2em;
+            transition: all 0.3s;
+            color: #000;
+            font-weight: bold;
+        }
+
+        .option-btn:hover {
+            background: #FCD116;
+            transform: scale(1.05);
+        }
+
+        .option-btn.correct {
+            background: #006B3F;
+            color: white;
+            border-color: #006B3F;
+        }
+
+        .option-btn.wrong {
+            background: #CE1126;
+            color: white;
+            border-color: #CE1126;
+        }
+
+        .score {
+            text-align: center;
+            font-size: 1.5em;
+            color: #CE1126;
+            font-weight: bold;
+            margin: 20px 0;
+            padding: 15px;
+            background: #FCD116;
+            border-radius: 10px;
+        }
+
+        .next-btn {
+            display: block;
+            margin: 20px auto;
+            padding: 15px 40px;
+            background: #006B3F;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.2em;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .next-btn:hover {
+            background: #CE1126;
+            transform: scale(1.05);
+        }
+
+        .bangs-rule {
+            background: linear-gradient(135deg, #FCD116 0%, #fff 100%);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border: 3px solid #CE1126;
+        }
+
+        .bangs-item {
+            font-size: 1.2em;
+            margin: 10px 0;
+            padding: 15px;
+            background: white;
+            border-radius: 8px;
+            border-left: 5px solid #006B3F;
+        }
+
+        .interactive-card {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 15px 0;
+            border: 3px solid #006B3F;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .interactive-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            background: #fffef0;
+        }
+
+        .flip-card {
+            perspective: 1000px;
+            height: 200px;
+            margin: 15px;
+        }
+
+        .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+        }
+
+        .flip-card.flipped .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .flip-card-front, .flip-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
             display: flex;
             align-items: center;
-            margin-bottom: 1rem;
-        }
-
-        .question-emoji {
-            font-size: 2.25rem;
-            margin-right: 1rem;
-        }
-
-        .question-text {
-            font-size: 1.25rem;
-            font-weight: 600;
-        }
-
-        .answer-buttons {
-            display: flex;
-            gap: 1rem;
-        }
-
-        .answer-btn {
-            padding: 0.75rem 1.5rem;
-            border-radius: 0.5rem;
+            justify-content: center;
+            border-radius: 15px;
+            font-size: 1.5em;
             font-weight: bold;
-            transition: all 0.3s;
-            border: none;
-            cursor: pointer;
+            padding: 20px;
         }
 
-        .answer-btn:not(.selected) {
-            background-color: #e5e7eb;
-        }
-
-        .answer-btn:not(.selected):hover {
-            background-color: #d1d5db;
-        }
-
-        .answer-btn.correct {
-            background-color: #16a34a;
+        .flip-card-front {
+            background: #006B3F;
             color: white;
         }
 
-        .answer-btn.incorrect {
-            background-color: #ef4444;
+        .flip-card-back {
+            background: #FCD116;
+            color: #000;
+            transform: rotateY(180deg);
+        }
+
+        .note {
+            background: #fffef0;
+            padding: 15px;
+            border-left: 5px solid #FCD116;
+            margin: 15px 0;
+            border-radius: 5px;
+            font-style: italic;
+        }
+
+        .color-palette {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .color-card {
+            padding: 15px;
+            border-radius: 10px;
             color: white;
-        }
-
-        .feedback {
-            margin-top: 0.75rem;
-            padding: 0.75rem;
-            background-color: #fefce8;
-            border-radius: 0.25rem;
-            border-left: 4px solid #eab308;
-        }
-
-        .feedback p {
-            font-weight: 600;
-        }
-
-        .completion-card {
-            background: linear-gradient(to right, #ef4444, #16a34a);
-            color: white;
-            padding: 1.5rem;
-            border-radius: 0.5rem;
             text-align: center;
-        }
-
-        .completion-card h3 {
-            font-size: 1.5rem;
             font-weight: bold;
-            margin-bottom: 0.5rem;
-        }
-
-        .completion-card p {
-            font-size: 1.125rem;
-        }
-
-        /* Navigation Buttons */
-        .nav-buttons-container {
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+            height: 120px;
             display: flex;
-            justify-content: space-between;
-            margin-top: 2rem;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: transform 0.3s;
         }
 
-        .nav-btn-prev, .nav-btn-next {
+        .color-card:hover {
+            transform: scale(1.05);
+        }
+
+        .color-name {
+            font-size: 1.2em;
+            margin-bottom: 5px;
+        }
+
+        .color-french {
+            font-size: 1.1em;
+            background: rgba(255,255,255,0.2);
+            padding: 5px 10px;
+            border-radius: 5px;
+            margin-top: 5px;
+        }
+
+        .game-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .game-card {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            border: 3px solid #006B3F;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .game-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            background: #fffef0;
+        }
+
+        .game-icon {
+            font-size: 3em;
+            margin-bottom: 15px;
+        }
+
+        .game-title {
+            font-size: 1.3em;
+            color: #CE1126;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .progress-bar {
+            height: 10px;
+            background: #ddd;
+            border-radius: 5px;
+            margin: 20px 0;
+            overflow: hidden;
+        }
+
+        .progress {
+            height: 100%;
+            background: #006B3F;
+            width: 0%;
+            transition: width 0.5s;
+        }
+
+        .achievement {
             display: flex;
             align-items: center;
-            padding: 0.75rem 1.5rem;
-            border-radius: 0.5rem;
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            margin: 10px 0;
+            border-left: 5px solid #FCD116;
+        }
+
+        .achievement-icon {
+            font-size: 2em;
+            margin-right: 15px;
+        }
+
+        .achievement-text {
+            flex: 1;
+        }
+
+        .achievement-title {
             font-weight: bold;
-            transition: all 0.3s;
-            border: none;
-            cursor: pointer;
+            color: #CE1126;
         }
 
-        .nav-btn-prev:disabled, .nav-btn-next:disabled {
-            background-color: #d1d5db;
-            cursor: not-allowed;
+        .achievement-desc {
+            color: #666;
         }
 
-        .nav-btn-prev:not(:disabled) {
-            background-color: #16a34a;
-            color: white;
-        }
-
-        .nav-btn-prev:not(:disabled):hover {
-            background-color: #15803d;
-        }
-
-        .nav-btn-next:not(:disabled) {
-            background-color: #eab308;
-            color: white;
-        }
-
-        .nav-btn-next:not(:disabled):hover {
-            background-color: #ca8a04;
-        }
-
-        .nav-btn-prev i, .nav-btn-next i {
-            margin: 0 0.5rem;
-        }
-
-        /* Footer */
-        footer {
-            background-color: #1f2937;
-            color: white;
-            padding: 1.5rem;
-            margin-top: 3rem;
-        }
-
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .footer-content p {
-            font-size: 1.125rem;
-        }
-
-        .footer-content .subtext {
-            font-size: 0.875rem;
-            color: #9ca3af;
-            margin-top: 0.5rem;
+        @media (max-width: 768px) {
+            h1 { font-size: 1.8em; }
+            .options { grid-template-columns: 1fr; }
+            .tab-buttons { flex-direction: column; }
+            .game-container { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
-    <!-- Ghana Flag Header -->
-    <div class="flag-header">
-        <div class="flag-red"></div>
-        <div class="flag-yellow"></div>
-        <div class="flag-green"></div>
+    <div class="container">
+        <header>
+            <h1>🇬🇭 French Adjectives Learning Hub 🇫🇷</h1>
+            <p class="subtitle">Akwaaba! Welcome to your French learning journey!</p>
+        </header>
+
+        <div class="tab-buttons">
+            <button class="tab-btn active" onclick="showTab('basics')">🧠 Basic Rules</button>
+            <button class="tab-btn" onclick="showTab('endings')">💡 Regular Endings</button>
+            <button class="tab-btn" onclick="showTab('unchanged')">⚖️ Unchanged Adjectives</button>
+            <button class="tab-btn" onclick="showTab('position')">🎯 Word Position</button>
+            <button class="tab-btn" onclick="showTab('irregular')">🧩 Irregular Forms</button>
+            <button class="tab-btn" onclick="showTab('colors')">🎨 Colors</button>
+            <button class="tab-btn" onclick="showTab('quiz')">🎮 Practice Quiz</button>
+        </div>
+
+        <!-- Tab 1: Basic Rules -->
+        <div id="basics" class="tab-content active">
+            <div class="section">
+                <h2>🧠 The Golden Rule: Agreement in Gender and Number</h2>
+                <p style="font-size: 1.2em; line-height: 1.8; margin-bottom: 20px;">
+                    In French, adjectives are like chameleons - they change their appearance to match the noun they describe! 
+                    Just like how we say "he is tall" and "she is tall" in English, French adjectives change their spelling 
+                    based on whether the noun is masculine or feminine, singular or plural.
+                </p>
+
+                <h3>👨 Masculine Examples:</h3>
+                <div class="example-box">
+                    <div class="example-item">
+                        <span class="french">un homme intelligent</span> → 
+                        <span class="english">an intelligent man</span>
+                    </div>
+                    <div class="example-item">
+                        <span class="french">un garçon courageux</span> → 
+                        <span class="english">a brave boy</span>
+                    </div>
+                    <div class="example-item">
+                        <span class="french">un livre intéressant</span> → 
+                        <span class="english">an interesting book</span>
+                    </div>
+                </div>
+
+                <h3>👩 Feminine Examples (Add -e):</h3>
+                <div class="example-box">
+                    <div class="example-item">
+                        <span class="french">une femme intelligent<strong style="color: #CE1126;">e</strong></span> → 
+                        <span class="english">an intelligent woman</span>
+                    </div>
+                    <div class="example-item">
+                        <span class="french">une fille courageus<strong style="color: #CE1126;">e</strong></span> → 
+                        <span class="english">a brave girl</span>
+                    </div>
+                    <div class="example-item">
+                        <span class="french">une histoire intéressant<strong style="color: #CE1126;">e</strong></span> → 
+                        <span class="english">an interesting story</span>
+                    </div>
+                </div>
+
+                <h3>👥 Plural Forms:</h3>
+                <div class="example-box">
+                    <div class="example-item">
+                        <span class="french">des hommes intelligent<strong style="color: #006B3F;">s</strong></span> → 
+                        <span class="english">intelligent men</span>
+                    </div>
+                    <div class="example-item">
+                        <span class="french">des femmes intelligent<strong style="color: #CE1126;">es</strong></span> → 
+                        <span class="english">intelligent women (add -e for feminine + s for plural)</span>
+                    </div>
+                </div>
+
+                <div class="note">
+                    <strong>💡 Pro Tip:</strong> If the masculine form already ends in -e, you don't add another -e for feminine! 
+                    Example: un homme calme → une femme calme (calm)
+                </div>
+            </div>
+
+            <div class="section">
+                <h3>🎴 Click the cards to reveal the feminine form!</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
+                    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">grand<br>(tall/big)</div>
+                            <div class="flip-card-back">grande<br>(feminine)</div>
+                        </div>
+                    </div>
+                    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">fort<br>(strong)</div>
+                            <div class="flip-card-back">forte<br>(feminine)</div>
+                        </div>
+                    </div>
+                    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">content<br>(happy)</div>
+                            <div class="flip-card-back">contente<br>(feminine)</div>
+                        </div>
+                    </div>
+                    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">blanc<br>(white)</div>
+                            <div class="flip-card-back">blanche<br>(feminine)</div>
+                        </div>
+                    </div>
+                    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">doux<br>(soft)</div>
+                            <div class="flip-card-back">douce<br>(feminine)</div>
+                        </div>
+                    </div>
+                    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">sec<br>(dry)</div>
+                            <div class="flip-card-back">sèche<br>(feminine)</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tab 2: Regular Endings -->
+        <div id="endings" class="tab-content">
+            <div class="section">
+                <h2>💡 Regular Adjective Endings - Master the Patterns!</h2>
+                <p style="font-size: 1.2em; line-height: 1.8; margin-bottom: 20px;">
+                    These are predictable patterns - once you learn them, you can transform hundreds of adjectives! 
+                    Each pattern has its own special rule. Let's explore them with real-life examples!
+                </p>
+
+                <h3>Pattern 1: Just add -e (Most common!)</h3>
+                <table>
+                    <tr>
+                        <th>Masculine</th>
+                        <th>Feminine</th>
+                        <th>Meaning</th>
+                        <th>Example Sentence</th>
+                    </tr>
+                    <tr onclick="this.style.background='#FCD116'">
+                        <td>petit</td>
+                        <td>petite</td>
+                        <td>small</td>
+                        <td><strong>Un petit chat</strong> (a small cat) → <strong>Une petite maison</strong> (a small house)</td>
+                    </tr>
+                    <tr onclick="this.style.background='#FCD116'">
+                        <td>grand</td>
+                        <td>grande</td>
+                        <td>tall/big</td>
+                        <td><strong>Un grand arbre</strong> (a tall tree) → <strong>Une grande ville</strong> (a big city)</td>
+                    </tr>
+                    <tr onclick="this.style.background='#FCD116'">
+                        <td>fort</td>
+                        <td>forte</td>
+                        <td>strong</td>
+                        <td><strong>Un homme fort</strong> (a strong man) → <strong>Une voix forte</strong> (a strong voice)</td>
+                    </tr>
+                </table>
+
+                <h3>Pattern 2: -f → -ve</h3>
+                <table>
+                    <tr>
+                        <th>Masculine</th>
+                        <th>Feminine</th>
+                        <th>Meaning</th>
+                        <th>Example Sentence</th>
+                    </tr>
+                    <tr onclick="this.style.background='#FCD116'">
+                        <td>actif</td>
+                        <td>active</td>
+                        <td>active</td>
+                        <td><strong>Un élève actif</strong> (an active student) → <strong>Une élève active</strong></td>
+                    </tr>
+                    <tr onclick="this.style.background='#FCD116'">
+                        <td>sportif</td>
+                        <td>sportive</td>
+                        <td>sporty/athletic</td>
+                        <td><strong>Un garçon sportif</strong> → <strong>Une fille sportive</strong></td>
+                    </tr>
+                    <tr onclick="this.style.background='#FCD116'">
+                        <td>créatif</td>
+                        <td>créative</td>
+                        <td>creative</td>
+                        <td><strong>Un esprit créatif</strong> → <strong>Une idée créative</strong></td>
+                    </tr>
+                </table>
+
+                <h3>Pattern 3: -x → -se</h3>
+                <table>
+                    <tr>
+                        <th>Masculine</th>
+                        <th>Feminine</th>
+                        <th>Meaning</th>
+                        <th>Example Sentence</th>
+                    </tr>
+                    <tr onclick="this.style.background='#FCD116'">
+                        <td>heureux</td>
+                        <td>heureuse</td>
+                        <td>happy</td>
+                        <td><strong>Un enfant heureux</strong> (a happy child) → <strong>Une famille heureuse</strong></td>
+                    </tr>
+                    <tr onclick="this.style.background='#FCD116'">
+                        <td>courageux</td>
+                        <td>courageuse</td>
+                        <td>brave</td>
+                        <td><strong>Un héros courageux</strong> → <strong>Une femme courageuse</strong></td>
+                    </tr>
+                    <tr onclick="this.style.background='#FCD116'">
+                        <td>dangereux</td>
+                        <td>dangereuse</td>
+                        <td>dangerous</td>
+                        <td><strong>Un animal dangereux</strong> → <strong>Une route dangereuse</strong></td>
+                    </tr>
+                </table>
+
+                <h3>Pattern 4: -eur → -euse</h3>
+                <table>
+                    <tr>
+                        <th>Masculine</th>
+                        <th>Feminine</th>
+                        <th>Meaning</th>
+                        <th>Example Sentence</th>
+                    </tr>
+                    <tr onclick="this.style.background='#FCD116'">
+                        <td>travailleur</td>
+                        <td>travailleuse</td>
+                        <td>hard-working</td>
+                        <td><strong>Un étudiant travailleur</strong> → <strong>Une étudiante travailleuse</strong></td>
+                    </tr>
+                    <tr onclick="this.style.background='#FCD116'">
+                        <td>menteur</td>
+                        <td>menteuse</td>
+                        <td>liar</td>
+                        <td><strong>Un garçon menteur</strong> → <strong>Une fille menteuse</strong></td>
+                    </tr>
+                </table>
+
+                <h3>Pattern 5: -er → -ère</h3>
+                <table>
+                    <tr>
+                        <th>Masculine</th>
+                        <th>Feminine</th>
+                        <th>Meaning</th>
+                        <th>Example Sentence</th>
+                    </tr>
+                    <tr onclick="this.style.background='#FCD116'">
+                        <td>cher</td>
+                        <td>chère</td>
+                        <td>dear/expensive</td>
+                        <td><strong>Un ami cher</strong> (a dear friend) → <strong>Une voiture chère</strong> (an expensive car)</td>
+                    </tr>
+                    <tr onclick="this.style.background='#FCD116'">
+                        <td>fier</td>
+                        <td>fière</td>
+                        <td>proud</td>
+                        <td><strong>Un père fier</strong> → <strong>Une mère fière</strong></td>
+                    </tr>
+                    <tr onclick="this.style.background='#FCD116'">
+                        <td>étranger</td>
+                        <td>étrangère</td>
+                        <td>foreign/strange</td>
+                        <td><strong>Un pays étranger</strong> → <strong>Une langue étrangère</strong></td>
+                    </tr>
+                </table>
+
+                <h3>Pattern 6: Double consonant + e (-on → -onne, -en → -enne)</h3>
+                <table>
+                    <tr>
+                        <th>Masculine</th>
+                        <th>Feminine</th>
+                        <th>Meaning</th>
+                        <th>Example Sentence</th>
+                    </tr>
+                    <tr onclick="this.style.background='#FCD116'">
+                        <td>mignon</td>
+                        <td>mignonne</td>
+                        <td>cute</td>
+                        <td><strong>Un bébé mignon</strong> → <strong>Une petite fille mignonne</strong></td>
+                    </tr>
+                    <tr onclick="this.style.background='#FCD116'">
+                        <td>bon</td>
+                        <td>bonne</td>
+                        <td>good</td>
+                        <td><strong>Un bon repas</strong> → <strong>Une bonne idée</strong></td>
+                    </tr>
+                    <tr onclick="this.style.background='#FCD116'">
+                        <td>ancien</td>
+                        <td>ancienne</td>
+                        <td>old/former</td>
+                        <td><strong>Un ancien professeur</strong> → <strong>Une ancienne école</strong></td>
+                    </tr>
+                    <tr onclick="this.style.background='#FCD116'">
+                        <td>européen</td>
+                        <td>européenne</td>
+                        <td>European</td>
+                        <td><strong>Un pays européen</strong> → <strong>Une ville européenne</strong></td>
+                    </tr>
+                </table>
+
+                <h3>Pattern 7: -el → -elle</h3>
+                <table>
+                    <tr>
+                        <th>Masculine</th>
+                        <th>Feminine</th>
+                        <th>Meaning</th>
+                        <th>Example Sentence</th>
+                    </tr>
+                    <tr onclick="this.style.background='#FCD116'">
+                        <td>cruel</td>
+                        <td>cruelle</td>
+                        <td>cruel</td>
+                        <td><strong>Un homme cruel</strong> → <strong>Une personne cruelle</strong></td>
+                    </tr>
+                    <tr onclick="this.style.background='#FCD116'">
+                        <td>réel</td>
+                        <td>réelle</td>
+                        <td>real</td>
+                        <td><strong>Un problème réel</strong> → <strong>Une histoire réelle</strong></td>
+                    </tr>
+                </table>
+
+                <h3>Pattern 8: -c → -che</h3>
+                <table>
+                    <tr>
+                        <th>Masculine</th>
+                        <th>Feminine</th>
+                        <th>Meaning</th>
+                        <th>Example Sentence</th>
+                    </tr>
+                    <tr onclick="this.style.background='#FCD116'">
+                        <td>blanc</td>
+                        <td>blanche</td>
+                        <td>white</td>
+                        <td><strong>Un mur blanc</strong> → <strong>Une robe blanche</strong></td>
+                    </tr>
+                    <tr onclick="this.style.background='#FCD116'">
+                        <td>franc</td>
+                        <td>franche</td>
+                        <td>frank</td>
+                        <td><strong>Un homme franc</strong> → <strong>Une réponse franche</strong></td>
+                    </tr>
+                </table>
+
+                <h3>Pattern 9: -g → -gue</h3>
+                <table>
+                    <tr>
+                        <th>Masculine</th>
+                        <th>Feminine</th>
+                        <th>Meaning</th>
+                        <th>Example Sentence</th>
+                    </tr>
+                    <tr onclick="this.style.background='#FCD116'">
+                        <td>long</td>
+                        <td>longue</td>
+                        <td>long</td>
+                        <td><strong>Un chemin long</strong> → <strong>Une robe longue</strong></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <!-- Tab 3: Unchanged Adjectives -->
+        <div id="unchanged" class="tab-content">
+            <div class="section">
+                <h2>⚖️ The Easy Ones: Adjectives That Stay the Same!</h2>
+                <p style="font-size: 1.2em; line-height: 1.8; margin-bottom: 20px;">
+                    Good news! Some adjectives don't change at all between masculine and feminine. 
+                    They're the same for everyone - this makes them super easy to remember! 
+                    Most of these adjectives already end in -e in their masculine form.
+                </p>
+
+                <h3>Common Unchanged Adjectives:</h3>
+                
+                <div class="interactive-card">
+                    <h4 style="color: #CE1126;">facile (easy)</h4>
+                    <div class="example-item">
+                        <span class="french">un exercice facile</span> → <span class="english">an easy exercise</span>
+                    </div>
+                    <div class="example-item">
+                        <span class="french">une leçon facile</span> → <span class="english">an easy lesson</span>
+                    </div>
+                    <p style="margin-top: 10px; color: #006B3F;">✓ Same spelling for both!</p>
+                </div>
+
+                <div class="interactive-card">
+                    <h4 style="color: #CE1126;">rapide (fast)</h4>
+                    <div class="example-item">
+                        <span class="french">un train rapide</span> → <span class="english">a fast train</span>
+                    </div>
+                    <div class="example-item">
+                        <span class="french">une voiture rapide</span> → <span class="english">a fast car</span>
+                    </div>
+                    <p style="margin-top: 10px; color: #006B3F;">✓ No change needed!</p>
+                </div>
+
+                <div class="interactive-card">
+                    <h4 style="color: #CE1126;">jeune (young)</h4>
+                    <div class="example-item">
+                        <span class="french">un jeune homme</span> → <span class="english">a young man</span>
+                    </div>
+                    <div class="example-item">
+                        <span class="french">une jeune femme</span> → <span class="english">a young woman</span>
+                    </div>
+                </div>
+
+                <div class="interactive-card">
+                    <h4 style="color: #CE1126;">riche (rich)</h4>
+                    <div class="example-item">
+                        <span class="french">un homme riche</span> → <span class="english">a rich man</span>
+                    </div>
+                    <div class="example-item">
+                        <span class="french">une femme riche</span> → <span class="english">a rich woman</span>
+                    </div>
+                </div>
+
+                <div class="interactive-card">
+                    <h4 style="color: #CE1126;">pauvre (poor)</h4>
+                    <div class="example-item">
+                        <span class="french">un garçon pauvre</span> → <span class="english">a poor boy</span>
+                    </div>
+                    <div class="example-item">
+                        <span class="french">une fille pauvre</span> → <span class="english">a poor girl</span>
+                    </div>
+                </div>
+
+                <div class="interactive-card">
+                    <h4 style="color: #CE1126;">sympa (nice) - informal</h4>
+                    <div class="example-item">
+                        <span class="french">un prof sympa</span> → <span class="english">a nice teacher (male)</span>
+                    </div>
+                    <div class="example-item">
+                        <span class="french">une prof sympa</span> → <span class="english">a nice teacher (female)</span>
+                    </div>
+                    <div class="note">This is short for "sympathique" which also doesn't change!</div>
+                </div>
+
+                <h3>🎨 Special Case: Color Adjectives</h3>
+                <div class="example-box">
+                    <p style="font-size: 1.2em; margin-bottom: 15px;">
+                        Some color adjectives don't change because they come from nouns (things)!
+                    </p>
+                    <div class="example-item">
+                        <strong>marron (brown)</strong> - from "marron" (chestnut)<br>
+                        <span class="french">un sac marron</span> / <span class="french">une veste marron</span>
+                    </div>
+                    <div class="example-item">
+                        <strong>orange (orange)</strong> - from "une orange" (the fruit)<br>
+                        <span class="french">un ballon orange</span> / <span class="french">une fleur orange</span>
+                    </div>
+                    <div class="example-item">
+                        <strong>bleu marine (navy blue)</strong><br>
+                        <span class="french">un pantalon bleu marine</span> / <span class="french">une jupe bleu marine</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tab 4: Position -->
+        <div id="position" class="tab-content">
+            <div class="section">
+                <h2>🎯 Where to Place Adjectives in Sentences</h2>
+                <p style="font-size: 1.2em; line-height: 1.8; margin-bottom: 20px;">
+                    In French, most adjectives come AFTER the noun they describe. But some special ones come BEFORE the noun. 
+                    Remember the BANGS rule to know which ones go before!
+                </p>
+
+                <div class="bangs-rule">
+                    <h3 style="color: #CE1126;">BANGS Rule - Adjectives that go BEFORE the noun:</h3>
+                    <div class="bangs-item">
+                        <strong>B</strong> - Beauty: beau (beautiful), joli (pretty)<br>
+                        <span class="french">un beau garçon</span> (a handsome boy) / <span class="french">une belle fille</span> (a beautiful girl)
+                    </div>
+                    <div class="bangs-item">
+                        <strong>A</strong> - Age: jeune (young), vieux (old), nouveau (new)<br>
+                        <span class="french">un vieil homme</span> (an old man) / <span class="french">une nouvelle maison</span> (a new house)
+                    </div>
+                    <div class="bangs-item">
+                        <strong>N</strong> - Number: premier (first), deuxième (second)<br>
+                        <span class="french">le premier jour</span> (the first day) / <span class="french">la deuxième fois</span> (the second time)
+                    </div>
+                    <div class="bangs-item">
+                        <strong>G</strong> - Goodness: bon (good), mauvais (bad)<br>
+                        <span class="french">un bon livre</span> (a good book) / <span class="french">une mauvaise idée</span> (a bad idea)
+                    </div>
+                    <div class="bangs-item">
+                        <strong>S</strong> - Size: grand (big), petit (small)<br>
+                        <span class="french">un petit chien</span> (a small dog) / <span class="french">une grande ville</span> (a big city)
+                    </div>
+                </div>
+
+                <h3>Most Adjectives Come AFTER the Noun:</h3>
+                <div class="example-box">
+                    <div class="example-item">
+                        <span class="french">une maison blanche</span> → <span class="english">a white house</span>
+                    </div>
+                    <div class="example-item">
+                        <span class="french">un livre intéressant</span> → <span class="english">an interesting book</span>
+                    </div>
+                    <div class="example-item">
+                        <span class="french">une voiture rapide</span> → <span class="english">a fast car</span>
+                    </div>
+                    <div class="example-item">
+                        <span class="french">un homme courageux</span> → <span class="english">a brave man</span>
+                    </div>
+                </div>
+
+                <h3>Interactive Practice: Drag the Words</h3>
+                <div style="background: white; padding: 20px; border-radius: 10px; margin: 20px 0; border: 3px solid #FCD116;">
+                    <p style="font-size: 1.2em; margin-bottom: 15px;">Drag the adjectives to the correct position:</p>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                        <div style="background: #fffef0; padding: 15px; border-radius: 10px;">
+                            <h4 style="color: #CE1126; margin-bottom: 10px;">Before the Noun (BANGS)</h4>
+                            <div id="before-noun" style="min-height: 100px; border: 2px dashed #006B3F; border-radius: 5px; padding: 10px;">
+                                <div class="draggable" draggable="true" style="background: #CE1126; color: white; padding: 8px; margin: 5px; border-radius: 5px; cursor: move;">beau</div>
+                                <div class="draggable" draggable="true" style="background: #CE1126; color: white; padding: 8px; margin: 5px; border-radius: 5px; cursor: move;">vieux</div>
+                                <div class="draggable" draggable="true" style="background: #CE1126; color: white; padding: 8px; margin: 5px; border-radius: 5px; cursor: move;">premier</div>
+                            </div>
+                        </div>
+                        <div style="background: #fffef0; padding: 15px; border-radius: 10px;">
+                            <h4 style="color: #006B3F; margin-bottom: 10px;">After the Noun</h4>
+                            <div id="after-noun" style="min-height: 100px; border: 2px dashed #CE1126; border-radius: 5px; padding: 10px;">
+                                <div class="draggable" draggable="true" style="background: #006B3F; color: white; padding: 8px; margin: 5px; border-radius: 5px; cursor: move;">blanche</div>
+                                <div class="draggable" draggable="true" style="background: #006B3F; color: white; padding: 8px; margin: 5px; border-radius: 5px; cursor: move;">intéressant</div>
+                                <div class="draggable" draggable="true" style="background: #006B3F; color: white; padding: 8px; margin: 5px; border-radius: 5px; cursor: move;">rapide</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tab 5: Irregular Forms -->
+        <div id="irregular" class="tab-content">
+            <div class="section">
+                <h2>🧩 Irregular Adjectives - Special Cases!</h2>
+                <p style="font-size: 1.2em; line-height: 1.8; margin-bottom: 20px;">
+                    Some French adjectives don't follow the regular patterns - they change completely between masculine and feminine forms. 
+                    These are the "rebels" of French grammar! But don't worry, with practice, you'll master them too.
+                </p>
+
+                <h3>Common Irregular Adjectives:</h3>
+                <table>
+                    <tr>
+                        <th>Masculine</th>
+                        <th>Feminine</th>
+                        <th>Meaning</th>
+                        <th>Example Sentence</th>
+                    </tr>
+                    <tr onclick="this.style.background='#FCD116'">
+                        <td>beau</td>
+                        <td>belle</td>
+                        <td>beautiful/handsome</td>
+                        <td><strong>Un beau garçon</strong> → <strong>Une belle fille</strong></td>
+                    </tr>
+                    <tr onclick="this.style.background='#FCD116'">
+                        <td>nouveau</td>
+                        <td>nouvelle</td>
+                        <td>new</td>
+                        <td><strong>Un nouveau livre</strong> → <strong>Une nouvelle idée</strong></td>
+                    </tr>
+                    <tr onclick="this.style.background='#FCD116'">
+                        <td>vieux</td>
+                        <td>vieille</td>
+                        <td>old</td>
+                        <td><strong>Un vieux monsieur</strong> → <strong>Une vieille dame</strong></td>
+                    </tr>
+                    <tr onclick="this.style.background='#FCD116'">
+                        <td>fou</td>
+                        <td>folle</td>
+                        <td>crazy</td>
+                        <td><strong>Un fou rire</strong> → <strong>Une folle histoire</strong></td>
+                    </tr>
+                    <tr onclick="this.style.background='#FCD116'">
+                        <td>mou</td>
+                        <td>molle</td>
+                        <td>soft</td>
+                        <td><strong>Un vent mou</strong> → <strong>Une réponse molle</strong></td>
+                    </tr>
+                    <tr onclick="this.style.background='#FCD116'">
+                        <td>blanc</td>
+                        <td>blanche</td>
+                        <td>white</td>
+                        <td><strong>Un mur blanc</strong> → <strong>Une robe blanche</strong></td>
+                    </tr>
+                    <tr onclick="this.style.background='#FCD116'">
+                        <td>sec</td>
+                        <td>sèche</td>
+                        <td>dry</td>
+                        <td><strong>Un pain sec</strong> → <strong>Une peau sèche</strong></td>
+                    </tr>
+                    <tr onclick="this.style.background='#FCD116'">
+                        <td>frais</td>
+                        <td>fraîche</td>
+                        <td>fresh/cool</td>
+                        <td><strong>Un air frais</strong> → <strong>Une salade fraîche</strong></td>
+                    </tr>
+                    <tr onclick="this.style.background='#FCD116'">
+                        <td>doux</td>
+                        <td>douce</td>
+                        <td>soft/sweet</td>
+                        <td><strong>Un vent doux</strong> → <strong>Une voix douce</strong></td>
+                    </tr>
+                    <tr onclick="this.style.background='#FCD116'">
+                        <td>long</td>
+                        <td>longue</td>
+                        <td>long</td>
+                        <td><strong>Un chemin long</strong> → <strong>Une robe longue</strong></td>
+                    </tr>
+                </table>
+
+                <h3>Special Forms Before Vowels:</h3>
+                <div class="example-box">
+                    <p style="font-size: 1.2em; margin-bottom: 15px;">
+                        Some irregular adjectives change form when they come before a vowel sound!
+                    </p>
+                    <div class="example-item">
+                        <strong>beau → bel</strong> before a vowel<br>
+                        <span class="french">un bel arbre</span> (a beautiful tree) instead of <span class="french">un beau arbre</span>
+                    </div>
+                    <div class="example-item">
+                        <strong>nouveau → nouvel</strong> before a vowel<br>
+                        <span class="french">un nouvel ami</span> (a new friend) instead of <span class="french">un nouveau ami</span>
+                    </div>
+                    <div class="example-item">
+                        <strong>vieux → vieil</strong> before a vowel<br>
+                        <span class="french">un vieil homme</span> (an old man) instead of <span class="french">un vieux homme</span>
+                    </div>
+                </div>
+
+                <h3>🎮 Memory Game: Match the Pairs!</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 15px; margin: 20px 0;">
+                    <div class="flip-card memory-card" onclick="flipMemoryCard(this)">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">beau</div>
+                            <div class="flip-card-back">belle</div>
+                        </div>
+                    </div>
+                    <div class="flip-card memory-card" onclick="flipMemoryCard(this)">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">nouveau</div>
+                            <div class="flip-card-back">nouvelle</div>
+                        </div>
+                    </div>
+                    <div class="flip-card memory-card" onclick="flipMemoryCard(this)">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">vieux</div>
+                            <div class="flip-card-back">vieille</div>
+                        </div>
+                    </div>
+                    <div class="flip-card memory-card" onclick="flipMemoryCard(this)">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">fou</div>
+                            <div class="flip-card-back">folle</div>
+                        </div>
+                    </div>
+                    <div class="flip-card memory-card" onclick="flipMemoryCard(this)">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">blanc</div>
+                            <div class="flip-card-back">blanche</div>
+                        </div>
+                    </div>
+                    <div class="flip-card memory-card" onclick="flipMemoryCard(this)">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">doux</div>
+                            <div class="flip-card-back">douce</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tab 6: Colors -->
+        <div id="colors" class="tab-content">
+            <div class="section">
+                <h2>🎨 Colors in French - With Ghanaian Inspiration!</h2>
+                <p style="font-size: 1.2em; line-height: 1.8; margin-bottom: 20px;">
+                    Colors in French follow special rules. Most change according to gender and number, 
+                    but some don't change at all! Let's explore them with colors inspired by Ghana's vibrant culture.
+                </p>
+
+                <h3>Colors That Change (Regular Adjectives):</h3>
+                <div class="color-palette">
+                    <div class="color-card" style="background: #CE1126;" onclick="showColorDetails('rouge', 'red', '#CE1126')">
+                        <div class="color-name">Red</div>
+                        <div class="color-french">rouge / rouge</div>
+                        <div style="margin-top: 10px;">🇬🇭 Ghana Flag</div>
+                    </div>
+                    <div class="color-card" style="background: #FCD116;" onclick="showColorDetails('jaune', 'yellow', '#FCD116')">
+                        <div class="color-name">Yellow</div>
+                        <div class="color-french">jaune / jaune</div>
+                        <div style="margin-top: 10px;">🇬🇭 Ghana Flag</div>
+                    </div>
+                    <div class="color-card" style="background: #006B3F;" onclick="showColorDetails('vert', 'green', '#006B3F')">
+                        <div class="color-name">Green</div>
+                        <div class="color-french">vert / verte</div>
+                        <div style="margin-top: 10px;">🇬🇭 Ghana Flag</div>
+                    </div>
+                    <div class="color-card" style="background: #000000; color: white;" onclick="showColorDetails('noir', 'black', '#000000')">
+                        <div class="color-name">Black</div>
+                        <div class="color-french">noir / noire</div>
+                        <div style="margin-top: 10px;">🇬🇭 Ghana Flag</div>
+                    </div>
+                    <div class="color-card" style="background: #FFFFFF; color: #000;" onclick="showColorDetails('blanc', 'white', '#FFFFFF')">
+                        <div class="color-name">White</div>
+                        <div class="color-french">blanc / blanche</div>
+                        <div style="margin-top: 10px;">🇬🇭 Kente Cloth</div>
+                    </div>
+                    <div class="color-card" style="background: #0000FF; color: white;" onclick="showColorDetails('bleu', 'blue', '#0000FF')">
+                        <div class="color-name">Blue</div>
+                        <div class="color-french">bleu / bleue</div>
+                        <div style="margin-top: 10px;">🇬🇭 Ocean</div>
+                    </div>
+                </div>
+
+                <h3>Colors That Don't Change (Invariable):</h3>
+                <div class="color-palette">
+                    <div class="color-card" style="background: #FFA500;" onclick="showColorDetails('orange', 'orange', '#FFA500')">
+                        <div class="color-name">Orange</div>
+                        <div class="color-french">orange / orange</div>
+                        <div style="margin-top: 10px;">🇬🇭 Tropical Fruit</div>
+                    </div>
+                    <div class="color-card" style="background: #800080; color: white;" onclick="showColorDetails('violet', 'purple', '#800080')">
+                        <div class="color-name">Purple</div>
+                        <div class="color-french">violet / violette</div>
+                        <div style="margin-top: 10px;">🇬🇭 Royal Color</div>
+                    </div>
+                    <div class="color-card" style="background: #FFC0CB;" onclick="showColorDetails('rose', 'pink', '#FFC0CB')">
+                        <div class="color-name">Pink</div>
+                        <div class="color-french">rose / rose</div>
+                        <div style="margin-top: 10px;">🇬🇭 Hibiscus Flower</div>
+                    </div>
+                    <div class="color-card" style="background: #964B00; color: white;" onclick="showColorDetails('marron', 'brown', '#964B00')">
+                        <div class="color-name">Brown</div>
+                        <div class="color-french">marron / marron</div>
+                        <div style="margin-top: 10px;">🇬🇭 Rich Soil</div>
+                    </div>
+                </div>
+
+                <div id="color-details" style="display: none; background: white; padding: 20px; border-radius: 10px; margin: 20px 0; border: 3px solid #FCD116;">
+                    <h3 id="color-title" style="color: #CE1126;"></h3>
+                    <div style="display: flex; align-items: center; gap: 20px; margin: 15px 0;">
+                        <div id="color-swatch" style="width: 100px; height: 100px; border-radius: 10px; border: 3px solid #000;"></div>
+                        <div>
+                            <p id="color-info" style="font-size: 1.2em;"></p>
+                            <div id="color-examples" style="margin-top: 10px;"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <h3>Compound Colors:</h3>
+                <div class="example-box">
+                    <p style="font-size: 1.2em; margin-bottom: 15px;">
+                        When you combine colors, neither changes form:
+                    </p>
+                    <div class="example-item">
+                        <span class="french">bleu clair</span> → light blue<br>
+                        <span class="french">vert foncé</span> → dark green<br>
+                        <span class="french">rouge vif</span> → bright red
+                    </div>
+                    <div class="example-item">
+                        <strong>Examples:</strong><br>
+                        <span class="french">une voiture bleu clair</span> (a light blue car)<br>
+                        <span class="french">un sac vert foncé</span> (a dark green bag)
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tab 7: Quiz -->
+        <div id="quiz" class="tab-content">
+            <div class="section">
+                <h2>🎮 Test Your Knowledge - French Adjectives Quiz!</h2>
+                <p style="font-size: 1.2em; line-height: 1.8; margin-bottom: 20px;">
+                    Ready to test what you've learned? Take this quiz to practice French adjectives! 
+                    You'll get instant feedback on your answers.
+                </p>
+
+                <div class="quiz-container">
+                    <div class="score">Score: <span id="quiz-score">0</span>/10</div>
+                    
+                    <div id="question-1" class="question">
+                        <p>What is the feminine form of "petit"?</p>
+                        <div class="options">
+                            <button class="option-btn" onclick="checkAnswer(this, 'correct', 1)">petite</button>
+                            <button class="option-btn" onclick="checkAnswer(this, 'wrong', 1)">petitte</button>
+                            <button class="option-btn" onclick="checkAnswer(this, 'wrong', 1)">petit</button>
+                            <button class="option-btn" onclick="checkAnswer(this, 'wrong', 1)">petita</button>
+                        </div>
+                    </div>
+
+                    <div id="question-2" class="question" style="display: none;">
+                        <p>Which adjective goes BEFORE the noun?</p>
+                        <div class="options">
+                            <button class="option-btn" onclick="checkAnswer(this, 'wrong', 2)">intéressant</button>
+                            <button class="option-btn" onclick="checkAnswer(this, 'correct', 2)">beau</button>
+                            <button class="option-btn" onclick="checkAnswer(this, 'wrong', 2)">blanc</button>
+                            <button class="option-btn" onclick="checkAnswer(this, 'wrong', 2)">rapide</button>
+                        </div>
+                    </div>
+
+                    <div id="question-3" class="question" style="display: none;">
+                        <p>What is the feminine form of "heureux"?</p>
+                        <div class="options">
+                            <button class="option-btn" onclick="checkAnswer(this, 'wrong', 3)">heureuxe</button>
+                            <button class="option-btn" onclick="checkAnswer(this, 'correct', 3)">heureuse</button>
+                            <button class="option-btn" onclick="checkAnswer(this, 'wrong', 3)">heureux</button>
+                            <button class="option-btn" onclick="checkAnswer(this, 'wrong', 3)">heureuse</button>
+                        </div>
+                    </div>
+
+                    <div id="question-4" class="question" style="display: none;">
+                        <p>Which color adjective does NOT change for feminine?</p>
+                        <div class="options">
+                            <button class="option-btn" onclick="checkAnswer(this, 'wrong', 4)">vert</button>
+                            <button class="option-btn" onclick="checkAnswer(this, 'wrong', 4)">blanc</button>
+                            <button class="option-btn" onclick="checkAnswer(this, 'correct', 4)">orange</button>
+                            <button class="option-btn" onclick="checkAnswer(this, 'wrong', 4)">noir</button>
+                        </div>
+                    </div>
+
+                    <div id="question-5" class="question" style="display: none;">
+                        <p>What is the feminine form of "sportif"?</p>
+                        <div class="options">
+                            <button class="option-btn" onclick="checkAnswer(this, 'wrong', 5)">sportife</button>
+                            <button class="option-btn" onclick="checkAnswer(this, 'correct', 5)">sportive</button>
+                            <button class="option-btn" onclick="checkAnswer(this, 'wrong', 5)">sportif</button>
+                            <button class="option-btn" onclick="checkAnswer(this, 'wrong', 5)">sportiffe</button>
+                        </div>
+                    </div>
+
+                    <div id="question-6" class="question" style="display: none;">
+                        <p>Which adjective is irregular?</p>
+                        <div class="options">
+                            <button class="option-btn" onclick="checkAnswer(this, 'wrong', 6)">petit</button>
+                            <button class="option-btn" onclick="checkAnswer(this, 'correct', 6)">beau</button>
+                            <button class="option-btn" onclick="checkAnswer(this, 'wrong', 6)">grand</button>
+                            <button class="option-btn" onclick="checkAnswer(this, 'wrong', 6)">fort</button>
+                        </div>
+                    </div>
+
+                    <div id="question-7" class="question" style="display: none;">
+                        <p>What is the feminine form of "vieux"?</p>
+                        <div class="options">
+                            <button class="option-btn" onclick="checkAnswer(this, 'wrong', 7)">vieuxe</button>
+                            <button class="option-btn" onclick="checkAnswer(this, 'correct', 7)">vieille</button>
+                            <button class="option-btn" onclick="checkAnswer(this, 'wrong', 7)">vieil</button>
+                            <button class="option-btn" onclick="checkAnswer(this, 'wrong', 7)">vielle</button>
+                        </div>
+                    </div>
+
+                    <div id="question-8" class="question" style="display: none;">
+                        <p>Which adjective does NOT change for feminine?</p>
+                        <div class="options">
+                            <button class="option-btn" onclick="checkAnswer(this, 'wrong', 8)">grand</button>
+                            <button class="option-btn" onclick="checkAnswer(this, 'correct', 8)">jeune</button>
+                            <button class="option-btn" onclick="checkAnswer(this, 'wrong', 8)">petit</button>
+                            <button class="option-btn" onclick="checkAnswer(this, 'wrong', 8)">fort</button>
+                        </div>
+                    </div>
+
+                    <div id="question-9" class="question" style="display: none;">
+                        <p>What is the feminine form of "actif"?</p>
+                        <div class="options">
+                            <button class="option-btn" onclick="checkAnswer(this, 'wrong', 9)">actife</button>
+                            <button class="option-btn" onclick="checkAnswer(this, 'correct', 9)">active</button>
+                            <button class="option-btn" onclick="checkAnswer(this, 'wrong', 9)">actif</button>
+                            <button class="option-btn" onclick="checkAnswer(this, 'wrong', 9)">actiffe</button>
+                        </div>
+                    </div>
+
+                    <div id="question-10" class="question" style="display: none;">
+                        <p>Which adjective goes AFTER the noun?</p>
+                        <div class="options">
+                            <button class="option-btn" onclick="checkAnswer(this, 'wrong', 10)">beau</button>
+                            <button class="option-btn" onclick="checkAnswer(this, 'wrong', 10)">vieux</button>
+                            <button class="option-btn" onclick="checkAnswer(this, 'correct', 10)">intéressant</button>
+                            <button class="option-btn" onclick="checkAnswer(this, 'wrong', 10)">bon</button>
+                        </div>
+                    </div>
+
+                    <div id="quiz-complete" style="display: none; text-align: center;">
+                        <h3 style="color: #CE1126;">Quiz Complete! 🎉</h3>
+                        <p style="font-size: 1.5em; margin: 20px 0;">Your final score: <span id="final-score">0</span>/10</p>
+                        <div id="quiz-feedback" style="font-size: 1.2em; margin: 20px 0;"></div>
+                        <button class="next-btn" onclick="resetQuiz()">Take Quiz Again</button>
+                    </div>
+
+                    <button id="next-btn" class="next-btn" style="display: none;" onclick="nextQuestion()">Next Question</button>
+                </div>
+            </div>
+        </div>
     </div>
 
-    <!-- Navigation -->
-    <nav>
-        <div class="nav-container">
-            <h1 class="nav-title">
-                <i class="fas fa-home"></i>
-                Chez Moi - French Lessons
-            </h1>
-            <div class="nav-buttons">
-                <button class="nav-btn active" data-section="intro">Introduction</button>
-                <button class="nav-btn" data-section="vocabulary">Vocabulary</button>
-                <button class="nav-btn" data-section="grammar">Grammar</button>
-                <button class="nav-btn" data-section="practice">Practice</button>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Main Content -->
-    <main>
-        <!-- Introduction Section -->
-        <section id="intro" class="section active">
-            <div class="hero">
-                <div class="hero-icon">
-                    <i class="fas fa-home fa-3x"></i>
-                </div>
-                <h1>Bienvenue! Welcome!</h1>
-                <h2>Unité 1: Chez Moi</h2>
-                <p>Unit 1: At My House</p>
-            </div>
-
-            <div class="card">
-                <h3>🎯 What You'll Learn:</h3>
-                <ul>
-                    <li><i class="fas fa-check" style="color: #ef4444;"></i> Names of rooms in a house</li>
-                    <li><i class="fas fa-check" style="color: #eab308;"></i> Objects in each room</li>
-                    <li><i class="fas fa-check" style="color: #16a34a;"></i> How to use French articles (le, la, l')</li>
-                    <li><i class="fas fa-check" style="color: #1f2937;"></i> How to describe your house in French</li>
-                </ul>
-            </div>
-
-            <div class="tip-card">
-                <h3>💡 Let's Start!</h3>
-                <p>Think about your house. How many rooms does it have? What objects can you find in each room?</p>
-            </div>
-        </section>
-
-        <!-- Vocabulary Section -->
-        <section id="vocabulary" class="section">
-            <div class="vocab-header">
-                <h2>
-                    <i class="fas fa-book"></i>
-                    Picture Dictionary - Vocabulaire
-                </h2>
-            </div>
-
-            <!-- Bathroom -->
-            <div class="room-section bathroom">
-                <h3 class="room-title">
-                    🚿 LA SALLE DE BAIN - Bathroom
-                    <button class="speak-btn" data-text="la salle de bain">
-                        <i class="fas fa-volume-up"></i>
-                    </button>
-                </h3>
-                <div class="vocab-grid" id="bathroom-vocab">
-                    <!-- Bathroom vocabulary cards will be inserted here by JavaScript -->
-                </div>
-            </div>
-
-            <!-- Bedroom -->
-            <div class="room-section bedroom">
-                <h3 class="room-title">
-                    🛏️ LA CHAMBRE - Bedroom
-                    <button class="speak-btn" data-text="la chambre">
-                        <i class="fas fa-volume-up"></i>
-                    </button>
-                </h3>
-                <div class="vocab-grid" id="bedroom-vocab">
-                    <!-- Bedroom vocabulary cards will be inserted here by JavaScript -->
-                </div>
-            </div>
-
-            <!-- Kitchen -->
-            <div class="room-section kitchen">
-                <h3 class="room-title">
-                    🍳 LA CUISINE - Kitchen
-                    <button class="speak-btn" data-text="la cuisine">
-                        <i class="fas fa-volume-up"></i>
-                    </button>
-                </h3>
-                <div class="vocab-grid" id="kitchen-vocab">
-                    <!-- Kitchen vocabulary cards will be inserted here by JavaScript -->
-                </div>
-            </div>
-
-            <!-- Living Room -->
-            <div class="room-section living-room">
-                <h3 class="room-title">
-                    🛋️ LE SALON - Living Room
-                    <button class="speak-btn" data-text="le salon">
-                        <i class="fas fa-volume-up"></i>
-                    </button>
-                </h3>
-                <div class="vocab-grid" id="living-room-vocab">
-                    <!-- Living room vocabulary cards will be inserted here by JavaScript -->
-                </div>
-            </div>
-        </section>
-
-        <!-- Grammar Section -->
-        <section id="grammar" class="section">
-            <div class="grammar-header">
-                <h2>📚 French Definite Articles: THE</h2>
-            </div>
-
-            <div class="grammar-card">
-                <h3>Understanding "THE" in French</h3>
-                <p>In French, "the" has three forms depending on the noun:</p>
-
-                <div class="article-section masculine">
-                    <h4>LE - Masculine</h4>
-                    <p>Used before masculine nouns</p>
-                    <div>
-                        <p><strong>le lit</strong> - the bed</p>
-                        <p><strong>le salon</strong> - the living room</p>
-                        <p><strong>le fauteuil</strong> - the armchair</p>
-                    </div>
-                </div>
-
-                <div class="article-section feminine">
-                    <h4>LA - Feminine</h4>
-                    <p>Used before feminine nouns</p>
-                    <div>
-                        <p><strong>la chambre</strong> - the bedroom</p>
-                        <p><strong>la cuisine</strong> - the kitchen</p>
-                        <p><strong>la table</strong> - the table</p>
-                    </div>
-                </div>
-
-                <div class="article-section vowel">
-                    <h4>L' - Before Vowels</h4>
-                    <p>Used before nouns starting with a vowel (a, e, i, o, u)</p>
-                    <div>
-                        <p><strong>l'armoire</strong> - the wardrobe</p>
-                        <p><strong>l'oreiller</strong> - the pillow</p>
-                        <p><strong>l'assiette</strong> - the plate</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="remember-card">
-                <h3>💡 Remember!</h3>
-                <p>You need to learn whether each noun is masculine or feminine. There's no easy rule, so it's best to memorize the article with the noun!</p>
-            </div>
-        </section>
-
-        <!-- Practice Section -->
-        <section id="practice" class="section">
-            <div class="practice-header">
-                <h2>
-                    <i class="fas fa-award"></i>
-                    Practice Time - Pratique!
-                </h2>
-            </div>
-
-            <div class="practice-card">
-                <h3>Answer these questions:</h3>
-                
-                <div class="question" id="question-1">
-                    <div class="question-header">
-                        <span class="question-emoji">🛋️</span>
-                        <p class="question-text">C'est le salon?</p>
-                    </div>
-                    <div class="answer-buttons">
-                        <button class="answer-btn" data-question="1" data-answer="oui">Oui</button>
-                        <button class="answer-btn" data-question="1" data-answer="non">Non</button>
-                    </div>
-                    <div class="feedback" id="feedback-1" style="display: none;">
-                        <p>Correct answer: Non, c'est le salon.</p>
-                    </div>
-                </div>
-
-                <div class="question" id="question-2">
-                    <div class="question-header">
-                        <span class="question-emoji">🛏️</span>
-                        <p class="question-text">C'est la chambre?</p>
-                    </div>
-                    <div class="answer-buttons">
-                        <button class="answer-btn" data-question="2" data-answer="oui">Oui</button>
-                        <button class="answer-btn" data-question="2" data-answer="non">Non</button>
-                    </div>
-                    <div class="feedback" id="feedback-2" style="display: none;">
-                        <p>Correct answer: Oui, c'est la chambre.</p>
-                    </div>
-                </div>
-
-                <div class="question" id="question-3">
-                    <div class="question-header">
-                        <span class="question-emoji">🍳</span>
-                        <p class="question-text">C'est la cuisine?</p>
-                    </div>
-                    <div class="answer-buttons">
-                        <button class="answer-btn" data-question="3" data-answer="oui">Oui</button>
-                        <button class="answer-btn" data-question="3" data-answer="non">Non</button>
-                    </div>
-                    <div class="feedback" id="feedback-3" style="display: none;">
-                        <p>Correct answer: Oui, c'est la cuisine.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="completion-card">
-                <h3>🎉 Bien fait! Well done!</h3>
-                <p>Keep practicing your French every day!</p>
-            </div>
-        </section>
-
-        <!-- Navigation Buttons -->
-        <div class="nav-buttons-container">
-            <button class="nav-btn-prev" id="prev-btn" disabled>
-                <i class="fas fa-chevron-left"></i>
-                Previous
-            </button>
-            <button class="nav-btn-next" id="next-btn">
-                Next
-                <i class="fas fa-chevron-right"></i>
-            </button>
-        </div>
-    </main>
-
-    <!-- Footer -->
-    <footer>
-        <div class="footer-content">
-            <p>🇬🇭 Learning French in Ghana 🇫🇷</p>
-            <p class="subtext">Basic 4 French Curriculum</p>
-        </div>
-    </footer>
-
     <script>
-        // Vocabulary data
-        const vocabulary = {
-            bathroom: [
-                { french: 'la salle de bain', english: 'bathroom', audio: 'sahl duh ban' },
-                { french: 'la baignoire', english: 'bathtub', audio: 'beh-nwahr' },
-                { french: 'la douche', english: 'shower', audio: 'doosh' },
-                { french: 'la glace', english: 'mirror', audio: 'glahs' },
-                { french: 'la serviette', english: 'towel', audio: 'sehr-vee-et' },
-                { french: 'le lavabo', english: 'sink', audio: 'lah-vah-boh' }
-            ],
-            bedroom: [
-                { french: 'la chambre', english: 'bedroom', audio: 'shahm-bruh' },
-                { french: 'le lit', english: 'bed', audio: 'lee' },
-                { french: "l'oreiller", english: 'pillow', audio: 'oh-ray-yay' },
-                { french: 'le dessus-de-lit', english: 'bedspread', audio: 'duh-sew duh lee' },
-                { french: "l'armoire", english: 'wardrobe', audio: 'ahr-mwahr' },
-                { french: 'la lampe', english: 'lamp', audio: 'lahmp' }
-            ],
-            kitchen: [
-                { french: 'la cuisine', english: 'kitchen', audio: 'kwee-zeen' },
-                { french: 'la cuisinière', english: 'stove', audio: 'kwee-zee-nyehr' },
-                { french: 'le four', english: 'oven', audio: 'foor' },
-                { french: 'la casserole', english: 'pot', audio: 'kahs-rohl' },
-                { french: "l'assiette", english: 'plate', audio: 'ah-see-et' }
-            ],
-            livingRoom: [
-                { french: 'le salon', english: 'living room', audio: 'sah-lohn' },
-                { french: 'le fauteuil', english: 'armchair', audio: 'foh-toy' },
-                { french: 'la télévision', english: 'television', audio: 'teh-leh-vee-zyohn' },
-                { french: 'la table', english: 'table', audio: 'tah-bluh' },
-                { french: 'la chaise', english: 'chair', audio: 'shez' }
-            ]
-        };
-
-        // Quiz questions
-        const quizQuestions = [
-            { question: 'C\'est le salon?', image: '🛋️', answer: 'non', correctAnswer: 'Non, c\'est le salon.' },
-            { question: 'C\'est la chambre?', image: '🛏️', answer: 'oui', correctAnswer: 'Oui, c\'est la chambre.' },
-            { question: 'C\'est la cuisine?', image: '🍳', answer: 'oui', correctAnswer: 'Oui, c\'est la cuisine.' }
-        ];
-
-        // State variables
-        let currentSection = 'intro';
-        let score = 0;
-        const quizAnswers = {};
-
-        // Section order
-        const sectionOrder = ['intro', 'vocabulary', 'grammar', 'practice'];
-        let currentIndex = 0;
-
-        // DOM elements
-        const sections = document.querySelectorAll('.section');
-        const navButtons = document.querySelectorAll('.nav-btn');
-        const prevBtn = document.getElementById('prev-btn');
-        const nextBtn = document.getElementById('next-btn');
-        const speakButtons = document.querySelectorAll('.speak-btn');
-        const answerButtons = document.querySelectorAll('.answer-btn');
-
-        // Initialize the page
-        document.addEventListener('DOMContentLoaded', function() {
-            // Populate vocabulary cards
-            populateVocabularyCards();
-            
-            // Set up event listeners
-            setupEventListeners();
-            
-            // Update navigation buttons
-            updateNavButtons();
-        });
-
-        // Populate vocabulary cards
-        function populateVocabularyCards() {
-            // Bathroom
-            const bathroomGrid = document.getElementById('bathroom-vocab');
-            vocabulary.bathroom.forEach(item => {
-                bathroomGrid.appendChild(createVocabularyCard(item));
-            });
-
-            // Bedroom
-            const bedroomGrid = document.getElementById('bedroom-vocab');
-            vocabulary.bedroom.forEach(item => {
-                bedroomGrid.appendChild(createVocabularyCard(item));
-            });
-
-            // Kitchen
-            const kitchenGrid = document.getElementById('kitchen-vocab');
-            vocabulary.kitchen.forEach(item => {
-                kitchenGrid.appendChild(createVocabularyCard(item));
-            });
-
-            // Living Room
-            const livingRoomGrid = document.getElementById('living-room-vocab');
-            vocabulary.livingRoom.forEach(item => {
-                livingRoomGrid.appendChild(createVocabularyCard(item));
-            });
-        }
-
-        // Create a vocabulary card
-        function createVocabularyCard(item) {
-            const card = document.createElement('div');
-            card.className = 'vocab-card';
-            
-            card.innerHTML = `
-                <div class="vocab-card-header">
-                    <h3>${item.french}</h3>
-                    <button class="speak-btn" data-text="${item.french}">
-                        <i class="fas fa-volume-up"></i>
-                    </button>
-                </div>
-                <p>Pronunciation: ${item.audio}</p>
-                <p class="english">${item.english}</p>
-            `;
-            
-            return card;
-        }
-
-        // Set up event listeners
-        function setupEventListeners() {
-            // Navigation buttons
-            navButtons.forEach(button => {
-                button.addEventListener('click', function() {
-                    const section = this.getAttribute('data-section');
-                    showSection(section);
-                });
-            });
-
-            // Previous and Next buttons
-            prevBtn.addEventListener('click', function() {
-                if (currentIndex > 0) {
-                    currentIndex--;
-                    showSection(sectionOrder[currentIndex]);
-                }
-            });
-
-            nextBtn.addEventListener('click', function() {
-                if (currentIndex < sectionOrder.length - 1) {
-                    currentIndex++;
-                    showSection(sectionOrder[currentIndex]);
-                }
-            });
-
-            // Speak buttons
-            document.addEventListener('click', function(e) {
-                if (e.target.closest('.speak-btn')) {
-                    const button = e.target.closest('.speak-btn');
-                    const text = button.getAttribute('data-text');
-                    speakText(text);
-                }
-            });
-
-            // Answer buttons
-            document.addEventListener('click', function(e) {
-                if (e.target.closest('.answer-btn')) {
-                    const button = e.target.closest('.answer-btn');
-                    const questionId = button.getAttribute('data-question');
-                    const answer = button.getAttribute('data-answer');
-                    
-                    handleAnswer(questionId, answer, button);
-                }
-            });
-        }
-
-        // Show a specific section
-        function showSection(sectionId) {
-            // Hide all sections
-            sections.forEach(section => {
-                section.classList.remove('active');
-            });
-            
-            // Show the selected section
-            document.getElementById(sectionId).classList.add('active');
-            
-            // Update navigation buttons
-            navButtons.forEach(button => {
-                if (button.getAttribute('data-section') === sectionId) {
-                    button.classList.add('active');
-                } else {
-                    button.classList.remove('active');
-                }
-            });
-            
-            // Update current section and index
-            currentSection = sectionId;
-            currentIndex = sectionOrder.indexOf(sectionId);
-            
-            // Update navigation buttons
-            updateNavButtons();
-        }
-
-        // Update navigation buttons
-        function updateNavButtons() {
-            prevBtn.disabled = currentIndex === 0;
-            nextBtn.disabled = currentIndex === sectionOrder.length - 1;
-        }
-
-        // Speak text using Web Speech API
-        function speakText(text) {
-            if ('speechSynthesis' in window) {
-                const utterance = new SpeechSynthesisUtterance(text);
-                utterance.lang = 'fr-FR';
-                utterance.rate = 0.8;
-                window.speechSynthesis.speak(utterance);
-            } else {
-                alert('Text-to-speech is not supported in your browser');
+        // Tab navigation
+        function showTab(tabName) {
+            // Hide all tab contents
+            const tabContents = document.getElementsByClassName('tab-content');
+            for (let i = 0; i < tabContents.length; i++) {
+                tabContents[i].classList.remove('active');
             }
+            
+            // Remove active class from all tab buttons
+            const tabButtons = document.getElementsByClassName('tab-btn');
+            for (let i = 0; i < tabButtons.length; i++) {
+                tabButtons[i].classList.remove('active');
+            }
+            
+            // Show the selected tab content
+            document.getElementById(tabName).classList.add('active');
+            
+            // Add active class to the clicked tab button
+            event.currentTarget.classList.add('active');
         }
 
-        // Handle quiz answers
-        function handleAnswer(questionId, answer, button) {
-            // Remove any existing selected classes from this question's buttons
-            const questionButtons = document.querySelectorAll(`.answer-btn[data-question="${questionId}"]`);
-            questionButtons.forEach(btn => {
-                btn.classList.remove('selected', 'correct', 'incorrect');
-            });
+        // Quiz functionality
+        let currentQuestion = 1;
+        let score = 0;
+
+        function checkAnswer(button, result, questionNum) {
+            const options = button.parentElement.children;
             
-            // Mark the selected button
-            button.classList.add('selected');
+            // Disable all buttons
+            for (let i = 0; i < options.length; i++) {
+                options[i].disabled = true;
+            }
             
-            // Check if the answer is correct
-            const question = quizQuestions[questionId - 1];
-            const isCorrect = answer === question.answer;
-            
-            // Update the button appearance
-            if (isCorrect) {
+            // Show correct/wrong styling
+            if (result === 'correct') {
                 button.classList.add('correct');
                 score++;
+                document.getElementById('quiz-score').textContent = score;
             } else {
-                button.classList.add('incorrect');
+                button.classList.add('wrong');
+                // Find and highlight the correct answer
+                for (let i = 0; i < options.length; i++) {
+                    if (options[i].getAttribute('onclick').includes('correct')) {
+                        options[i].classList.add('correct');
+                    }
+                }
             }
             
-            // Show feedback
-            const feedback = document.getElementById(`feedback-${questionId}`);
-            feedback.style.display = 'block';
-            
-            // Store the answer
-            quizAnswers[questionId] = answer;
+            // Show next button
+            document.getElementById('next-btn').style.display = 'block';
         }
+
+        function nextQuestion() {
+            // Hide current question
+            document.getElementById('question-' + currentQuestion).style.display = 'none';
+            
+            // Show next question or finish quiz
+            currentQuestion++;
+            if (currentQuestion <= 10) {
+                document.getElementById('question-' + currentQuestion).style.display = 'block';
+                document.getElementById('next-btn').style.display = 'none';
+            } else {
+                // Quiz complete
+                document.getElementById('quiz-complete').style.display = 'block';
+                document.getElementById('final-score').textContent = score;
+                
+                // Provide feedback based on score
+                const feedback = document.getElementById('quiz-feedback');
+                if (score >= 9) {
+                    feedback.innerHTML = '<div style="color: #006B3F; font-weight: bold;">Excellent! You\'re a French adjective master! 🏆</div>';
+                } else if (score >= 7) {
+                    feedback.innerHTML = '<div style="color: #FCD116; font-weight: bold;">Great job! You understand French adjectives well! 🌟</div>';
+                } else if (score >= 5) {
+                    feedback.innerHTML = '<div style="color: #CE1126; font-weight: bold;">Good effort! Keep practicing to improve! 💪</div>';
+                } else {
+                    feedback.innerHTML = '<div style="color: #CE1126; font-weight: bold;">Keep studying! Review the lessons and try again! 📚</div>';
+                }
+                
+                document.getElementById('next-btn').style.display = 'none';
+            }
+        }
+
+        function resetQuiz() {
+            currentQuestion = 1;
+            score = 0;
+            document.getElementById('quiz-score').textContent = '0';
+            document.getElementById('final-score').textContent = '0';
+            document.getElementById('quiz-complete').style.display = 'none';
+            
+            // Reset all questions
+            for (let i = 1; i <= 10; i++) {
+                document.getElementById('question-' + i).style.display = i === 1 ? 'block' : 'none';
+                
+                // Reset buttons
+                const options = document.getElementById('question-' + i).getElementsByClassName('option-btn');
+                for (let j = 0; j < options.length; j++) {
+                    options[j].classList.remove('correct', 'wrong');
+                    options[j].disabled = false;
+                }
+            }
+            
+            document.getElementById('next-btn').style.display = 'none';
+        }
+
+        // Color details functionality
+        function showColorDetails(frenchName, englishName, hexCode) {
+            document.getElementById('color-details').style.display = 'block';
+            document.getElementById('color-title').textContent = `${englishName} - ${frenchName}`;
+            document.getElementById('color-swatch').style.backgroundColor = hexCode;
+            
+            let colorInfo = '';
+            let examples = '';
+            
+            switch(frenchName) {
+                case 'rouge':
+                    colorInfo = 'This color does not change for feminine: rouge/rouge';
+                    examples = '<strong>Examples:</strong><br>' +
+                               '<span class="french">un drapeau rouge</span> (a red flag)<br>' +
+                               '<span class="french">une voiture rouge</span> (a red car)';
+                    break;
+                case 'jaune':
+                    colorInfo = 'This color does not change for feminine: jaune/jaune';
+                    examples = '<strong>Examples:</strong><br>' +
+                               '<span class="french">un soleil jaune</span> (a yellow sun)<br>' +
+                               '<span class="french">une fleur jaune</span> (a yellow flower)';
+                    break;
+                case 'vert':
+                    colorInfo = 'This color changes for feminine: vert/verte';
+                    examples = '<strong>Examples:</strong><br>' +
+                               '<span class="french">un arbre vert</span> (a green tree)<br>' +
+                               '<span class="french">une feuille verte</span> (a green leaf)';
+                    break;
+                case 'noir':
+                    colorInfo = 'This color changes for feminine: noir/noire';
+                    examples = '<strong>Examples:</strong><br>' +
+                               '<span class="french">un chat noir</span> (a black cat)<br>' +
+                               '<span class="french">une nuit noire</span> (a black night)';
+                    break;
+                case 'blanc':
+                    colorInfo = 'This color changes irregularly for feminine: blanc/blanche';
+                    examples = '<strong>Examples:</strong><br>' +
+                               '<span class="french">un cheval blanc</span> (a white horse)<br>' +
+                               '<span class="french">une neige blanche</span> (white snow)';
+                    break;
+                case 'bleu':
+                    colorInfo = 'This color changes for feminine: bleu/bleue';
+                    examples = '<strong>Examples:</strong><br>' +
+                               '<span class="french">un ciel bleu</span> (a blue sky)<br>' +
+                               '<span class="french">une mer bleue</span> (a blue sea)';
+                    break;
+                case 'orange':
+                    colorInfo = 'This color does not change for feminine: orange/orange';
+                    examples = '<strong>Examples:</strong><br>' +
+                               '<span class="french">un fruit orange</span> (an orange fruit)<br>' +
+                               '<span class="french">une robe orange</span> (an orange dress)';
+                    break;
+                case 'violet':
+                    colorInfo = 'This color changes for feminine: violet/violette';
+                    examples = '<strong>Examples:</strong><br>' +
+                               '<span class="french">un crayon violet</span> (a purple pencil)<br>' +
+                               '<span class="french">une fleur violette</span> (a purple flower)';
+                    break;
+                case 'rose':
+                    colorInfo = 'This color does not change for feminine: rose/rose';
+                    examples = '<strong>Examples:</strong><br>' +
+                               '<span class="french">un cochon rose</span> (a pink pig)<br>' +
+                               '<span class="french">une fleur rose</span> (a pink flower)';
+                    break;
+                case 'marron':
+                    colorInfo = 'This color does not change for feminine: marron/marron';
+                    examples = '<strong>Examples:</strong><br>' +
+                               '<span class="french">un ours marron</span> (a brown bear)<br>' +
+                               '<span class="french">une table marron</span> (a brown table)';
+                    break;
+            }
+            
+            document.getElementById('color-info').innerHTML = colorInfo;
+            document.getElementById('color-examples').innerHTML = examples;
+        }
+
+        // Memory game functionality
+        let flippedCards = [];
+        let matchedPairs = 0;
+
+        function flipMemoryCard(card) {
+            if (flippedCards.length < 2 && !card.classList.contains('flipped')) {
+                card.classList.add('flipped');
+                flippedCards.push(card);
+                
+                if (flippedCards.length === 2) {
+                    setTimeout(checkMatch, 1000);
+                }
+            }
+        }
+
+        function checkMatch() {
+            const card1 = flippedCards[0];
+            const card2 = flippedCards[1];
+            
+            const text1 = card1.querySelector('.flip-card-back').textContent.trim();
+            const text2 = card2.querySelector('.flip-card-front').textContent.trim();
+            
+            if (text1 === text2) {
+                // Match found
+                matchedPairs++;
+                card1.style.visibility = 'hidden';
+                card2.style.visibility = 'hidden';
+                
+                if (matchedPairs === 6) {
+                    setTimeout(() => {
+                        alert('Congratulations! You matched all pairs! 🎉');
+                        resetMemoryGame();
+                    }, 500);
+                }
+            } else {
+                // No match - flip cards back
+                card1.classList.remove('flipped');
+                card2.classList.remove('flipped');
+            }
+            
+            flippedCards = [];
+        }
+
+        function resetMemoryGame() {
+            const cards = document.querySelectorAll('.memory-card');
+            cards.forEach(card => {
+                card.classList.remove('flipped');
+                card.style.visibility = 'visible';
+            });
+            flippedCards = [];
+            matchedPairs = 0;
+        }
+
+        // Drag and drop functionality for position tab
+        document.addEventListener('DOMContentLoaded', function() {
+            const draggables = document.querySelectorAll('.draggable');
+            const containers = document.querySelectorAll('#before-noun, #after-noun');
+            
+            draggables.forEach(draggable => {
+                draggable.addEventListener('dragstart', () => {
+                    draggable.classList.add('dragging');
+                });
+                
+                draggable.addEventListener('dragend', () => {
+                    draggable.classList.remove('dragging');
+                });
+            });
+            
+            containers.forEach(container => {
+                container.addEventListener('dragover', e => {
+                    e.preventDefault();
+                    const afterElement = getDragAfterElement(container, e.clientY);
+                    const draggable = document.querySelector('.dragging');
+                    if (afterElement == null) {
+                        container.appendChild(draggable);
+                    } else {
+                        container.insertBefore(draggable, afterElement);
+                    }
+                });
+            });
+            
+            function getDragAfterElement(container, y) {
+                const draggableElements = [...container.querySelectorAll('.draggable:not(.dragging)')];
+                
+                return draggableElements.reduce((closest, child) => {
+                    const box = child.getBoundingClientRect();
+                    const offset = y - box.top - box.height / 2;
+                    if (offset < 0 && offset > closest.offset) {
+                        return { offset: offset, element: child };
+                    } else {
+                        return closest;
+                    }
+                }, { offset: Number.NEGATIVE_INFINITY }).element;
+            }
+        });
     </script>
 </body>
 </html>
