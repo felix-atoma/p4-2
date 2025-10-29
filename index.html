@@ -49,6 +49,39 @@
             margin-top: 10px;
         }
 
+        .audio-controls {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 15px;
+            flex-wrap: wrap;
+        }
+
+        .audio-btn {
+            background: white;
+            color: #006B3F;
+            border: none;
+            border-radius: 25px;
+            padding: 10px 20px;
+            font-size: 1em;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s;
+            font-weight: bold;
+        }
+
+        .audio-btn:hover {
+            background: #FCD116;
+            transform: scale(1.05);
+        }
+
+        .audio-btn.playing {
+            background: #CE1126;
+            color: white;
+        }
+
         .tab-buttons {
             display: flex;
             gap: 10px;
@@ -133,6 +166,9 @@
             padding: 10px;
             background: #fffef0;
             border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
         }
 
         .french {
@@ -464,11 +500,74 @@
             color: #666;
         }
 
+        /* Audio player styles */
+        .audio-btn-small {
+            background: #006B3F;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            font-size: 1.2em;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+            margin-left: 10px;
+        }
+
+        .audio-btn-small:hover {
+            background: #CE1126;
+            transform: scale(1.1);
+        }
+
+        .audio-btn-small.playing {
+            background: #FCD116;
+            color: #000;
+        }
+
+        .audio-controls-small {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin: 10px 0;
+        }
+
+        .audio-text {
+            font-size: 1.2em;
+            color: #CE1126;
+            font-weight: bold;
+        }
+
+        .audio-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin: 5px 0;
+        }
+
+        .audio-example {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px;
+            background: #fffef0;
+            border-radius: 5px;
+            margin: 5px 0;
+        }
+
+        .table-audio {
+            width: 60px;
+            text-align: center;
+        }
+
         @media (max-width: 768px) {
             h1 { font-size: 1.8em; }
             .options { grid-template-columns: 1fr; }
             .tab-buttons { flex-direction: column; }
             .game-container { grid-template-columns: 1fr; }
+            .audio-controls { flex-direction: column; }
         }
     </style>
 </head>
@@ -477,6 +576,17 @@
         <header>
             <h1>🇬🇭 French Adjectives Learning Hub 🇫🇷</h1>
             <p class="subtitle">Akwaaba! Welcome to your French learning journey!</p>
+            <div class="audio-controls">
+                <button class="audio-btn" onclick="toggleBackgroundAudio()" id="bg-audio-btn">
+                    <span>♪</span> Background Music
+                </button>
+                <button class="audio-btn" onclick="speakAllContent()">
+                    <span>🔊</span> Read All Content
+                </button>
+                <button class="audio-btn" onclick="stopAllAudio()">
+                    <span>⏹️</span> Stop All Audio
+                </button>
+            </div>
         </header>
 
         <div class="tab-buttons">
@@ -493,96 +603,126 @@
         <div id="basics" class="tab-content active">
             <div class="section">
                 <h2>🧠 The Golden Rule: Agreement in Gender and Number</h2>
+                <div class="audio-container">
+                    <button class="audio-btn-small" onclick="playFrenchAudio('Règle d\'or des adjectifs français')">▶</button>
+                    <span class="audio-text">Listen to French explanation</span>
+                </div>
                 <p style="font-size: 1.2em; line-height: 1.8; margin-bottom: 20px;">
                     In French, adjectives are like chameleons - they change their appearance to match the noun they describe! 
                     Just like how we say "he is tall" and "she is tall" in English, French adjectives change their spelling 
                     based on whether the noun is masculine or feminine, singular or plural.
+                    <button class="audio-btn-small" onclick="playEnglishAudio('In French, adjectives are like chameleons - they change their appearance to match the noun they describe! Just like how we say he is tall and she is tall in English, French adjectives change their spelling based on whether the noun is masculine or feminine, singular or plural.')">▶</button>
                 </p>
 
                 <h3>👨 Masculine Examples:</h3>
                 <div class="example-box">
-                    <div class="example-item">
-                        <span class="french">un homme intelligent</span> → 
-                        <span class="english">an intelligent man</span>
+                    <div class="audio-example">
+                        <div>
+                            <span class="french">un homme intelligent</span> → 
+                            <span class="english">an intelligent man</span>
+                        </div>
+                        <button class="audio-btn-small" onclick="playFrenchAudio('un homme intelligent')">▶</button>
                     </div>
-                    <div class="example-item">
-                        <span class="french">un garçon courageux</span> → 
-                        <span class="english">a brave boy</span>
+                    <div class="audio-example">
+                        <div>
+                            <span class="french">un garçon courageux</span> → 
+                            <span class="english">a brave boy</span>
+                        </div>
+                        <button class="audio-btn-small" onclick="playFrenchAudio('un garçon courageux')">▶</button>
                     </div>
-                    <div class="example-item">
-                        <span class="french">un livre intéressant</span> → 
-                        <span class="english">an interesting book</span>
+                    <div class="audio-example">
+                        <div>
+                            <span class="french">un livre intéressant</span> → 
+                            <span class="english">an interesting book</span>
+                        </div>
+                        <button class="audio-btn-small" onclick="playFrenchAudio('un livre intéressant')">▶</button>
                     </div>
                 </div>
 
                 <h3>👩 Feminine Examples (Add -e):</h3>
                 <div class="example-box">
-                    <div class="example-item">
-                        <span class="french">une femme intelligent<strong style="color: #CE1126;">e</strong></span> → 
-                        <span class="english">an intelligent woman</span>
+                    <div class="audio-example">
+                        <div>
+                            <span class="french">une femme intelligent<strong style="color: #CE1126;">e</strong></span> → 
+                            <span class="english">an intelligent woman</span>
+                        </div>
+                        <button class="audio-btn-small" onclick="playFrenchAudio('une femme intelligente')">▶</button>
                     </div>
-                    <div class="example-item">
-                        <span class="french">une fille courageus<strong style="color: #CE1126;">e</strong></span> → 
-                        <span class="english">a brave girl</span>
+                    <div class="audio-example">
+                        <div>
+                            <span class="french">une fille courageus<strong style="color: #CE1126;">e</strong></span> → 
+                            <span class="english">a brave girl</span>
+                        </div>
+                        <button class="audio-btn-small" onclick="playFrenchAudio('une fille courageuse')">▶</button>
                     </div>
-                    <div class="example-item">
-                        <span class="french">une histoire intéressant<strong style="color: #CE1126;">e</strong></span> → 
-                        <span class="english">an interesting story</span>
+                    <div class="audio-example">
+                        <div>
+                            <span class="french">une histoire intéressant<strong style="color: #CE1126;">e</strong></span> → 
+                            <span class="english">an interesting story</span>
+                        </div>
+                        <button class="audio-btn-small" onclick="playFrenchAudio('une histoire intéressante')">▶</button>
                     </div>
                 </div>
 
                 <h3>👥 Plural Forms:</h3>
                 <div class="example-box">
-                    <div class="example-item">
-                        <span class="french">des hommes intelligent<strong style="color: #006B3F;">s</strong></span> → 
-                        <span class="english">intelligent men</span>
+                    <div class="audio-example">
+                        <div>
+                            <span class="french">des hommes intelligent<strong style="color: #006B3F;">s</strong></span> → 
+                            <span class="english">intelligent men</span>
+                        </div>
+                        <button class="audio-btn-small" onclick="playFrenchAudio('des hommes intelligents')">▶</button>
                     </div>
-                    <div class="example-item">
-                        <span class="french">des femmes intelligent<strong style="color: #CE1126;">es</strong></span> → 
-                        <span class="english">intelligent women (add -e for feminine + s for plural)</span>
+                    <div class="audio-example">
+                        <div>
+                            <span class="french">des femmes intelligent<strong style="color: #CE1126;">es</strong></span> → 
+                            <span class="english">intelligent women (add -e for feminine + s for plural)</span>
+                        </div>
+                        <button class="audio-btn-small" onclick="playFrenchAudio('des femmes intelligentes')">▶</button>
                     </div>
                 </div>
 
                 <div class="note">
                     <strong>💡 Pro Tip:</strong> If the masculine form already ends in -e, you don't add another -e for feminine! 
                     Example: un homme calme → une femme calme (calm)
+                    <button class="audio-btn-small" onclick="playFrenchAudio('un homme calme, une femme calme')">▶</button>
                 </div>
             </div>
 
             <div class="section">
                 <h3>🎴 Click the cards to reveal the feminine form!</h3>
                 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
-                    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+                    <div class="flip-card" onclick="this.classList.toggle('flipped'); playFrenchAudio('grand, grande')">
                         <div class="flip-card-inner">
                             <div class="flip-card-front">grand<br>(tall/big)</div>
                             <div class="flip-card-back">grande<br>(feminine)</div>
                         </div>
                     </div>
-                    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+                    <div class="flip-card" onclick="this.classList.toggle('flipped'); playFrenchAudio('fort, forte')">
                         <div class="flip-card-inner">
                             <div class="flip-card-front">fort<br>(strong)</div>
                             <div class="flip-card-back">forte<br>(feminine)</div>
                         </div>
                     </div>
-                    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+                    <div class="flip-card" onclick="this.classList.toggle('flipped'); playFrenchAudio('content, contente')">
                         <div class="flip-card-inner">
                             <div class="flip-card-front">content<br>(happy)</div>
                             <div class="flip-card-back">contente<br>(feminine)</div>
                         </div>
                     </div>
-                    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+                    <div class="flip-card" onclick="this.classList.toggle('flipped'); playFrenchAudio('blanc, blanche')">
                         <div class="flip-card-inner">
                             <div class="flip-card-front">blanc<br>(white)</div>
                             <div class="flip-card-back">blanche<br>(feminine)</div>
                         </div>
                     </div>
-                    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+                    <div class="flip-card" onclick="this.classList.toggle('flipped'); playFrenchAudio('doux, douce')">
                         <div class="flip-card-inner">
                             <div class="flip-card-front">doux<br>(soft)</div>
                             <div class="flip-card-back">douce<br>(feminine)</div>
                         </div>
                     </div>
-                    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+                    <div class="flip-card" onclick="this.classList.toggle('flipped'); playFrenchAudio('sec, sèche')">
                         <div class="flip-card-inner">
                             <div class="flip-card-front">sec<br>(dry)</div>
                             <div class="flip-card-back">sèche<br>(feminine)</div>
@@ -596,9 +736,14 @@
         <div id="endings" class="tab-content">
             <div class="section">
                 <h2>💡 Regular Adjective Endings - Master the Patterns!</h2>
+                <div class="audio-container">
+                    <button class="audio-btn-small" onclick="playFrenchAudio('Les terminaisons régulières des adjectifs')">▶</button>
+                    <span class="audio-text">Listen to French explanation</span>
+                </div>
                 <p style="font-size: 1.2em; line-height: 1.8; margin-bottom: 20px;">
                     These are predictable patterns - once you learn them, you can transform hundreds of adjectives! 
                     Each pattern has its own special rule. Let's explore them with real-life examples!
+                    <button class="audio-btn-small" onclick="playEnglishAudio('These are predictable patterns - once you learn them, you can transform hundreds of adjectives! Each pattern has its own special rule. Let us explore them with real-life examples!')">▶</button>
                 </p>
 
                 <h3>Pattern 1: Just add -e (Most common!)</h3>
@@ -608,24 +753,28 @@
                         <th>Feminine</th>
                         <th>Meaning</th>
                         <th>Example Sentence</th>
+                        <th class="table-audio">Audio</th>
                     </tr>
                     <tr onclick="this.style.background='#FCD116'">
                         <td>petit</td>
                         <td>petite</td>
                         <td>small</td>
                         <td><strong>Un petit chat</strong> (a small cat) → <strong>Une petite maison</strong> (a small house)</td>
+                        <td class="table-audio"><button class="audio-btn-small" onclick="playFrenchAudio('Un petit chat, Une petite maison')">▶</button></td>
                     </tr>
                     <tr onclick="this.style.background='#FCD116'">
                         <td>grand</td>
                         <td>grande</td>
                         <td>tall/big</td>
                         <td><strong>Un grand arbre</strong> (a tall tree) → <strong>Une grande ville</strong> (a big city)</td>
+                        <td class="table-audio"><button class="audio-btn-small" onclick="playFrenchAudio('Un grand arbre, Une grande ville')">▶</button></td>
                     </tr>
                     <tr onclick="this.style.background='#FCD116'">
                         <td>fort</td>
                         <td>forte</td>
                         <td>strong</td>
                         <td><strong>Un homme fort</strong> (a strong man) → <strong>Une voix forte</strong> (a strong voice)</td>
+                        <td class="table-audio"><button class="audio-btn-small" onclick="playFrenchAudio('Un homme fort, Une voix forte')">▶</button></td>
                     </tr>
                 </table>
 
@@ -636,24 +785,28 @@
                         <th>Feminine</th>
                         <th>Meaning</th>
                         <th>Example Sentence</th>
+                        <th class="table-audio">Audio</th>
                     </tr>
                     <tr onclick="this.style.background='#FCD116'">
                         <td>actif</td>
                         <td>active</td>
                         <td>active</td>
                         <td><strong>Un élève actif</strong> (an active student) → <strong>Une élève active</strong></td>
+                        <td class="table-audio"><button class="audio-btn-small" onclick="playFrenchAudio('Un élève actif, Une élève active')">▶</button></td>
                     </tr>
                     <tr onclick="this.style.background='#FCD116'">
                         <td>sportif</td>
                         <td>sportive</td>
                         <td>sporty/athletic</td>
                         <td><strong>Un garçon sportif</strong> → <strong>Une fille sportive</strong></td>
+                        <td class="table-audio"><button class="audio-btn-small" onclick="playFrenchAudio('Un garçon sportif, Une fille sportive')">▶</button></td>
                     </tr>
                     <tr onclick="this.style.background='#FCD116'">
                         <td>créatif</td>
                         <td>créative</td>
                         <td>creative</td>
                         <td><strong>Un esprit créatif</strong> → <strong>Une idée créative</strong></td>
+                        <td class="table-audio"><button class="audio-btn-small" onclick="playFrenchAudio('Un esprit créatif, Une idée créative')">▶</button></td>
                     </tr>
                 </table>
 
@@ -664,24 +817,28 @@
                         <th>Feminine</th>
                         <th>Meaning</th>
                         <th>Example Sentence</th>
+                        <th class="table-audio">Audio</th>
                     </tr>
                     <tr onclick="this.style.background='#FCD116'">
                         <td>heureux</td>
                         <td>heureuse</td>
                         <td>happy</td>
                         <td><strong>Un enfant heureux</strong> (a happy child) → <strong>Une famille heureuse</strong></td>
+                        <td class="table-audio"><button class="audio-btn-small" onclick="playFrenchAudio('Un enfant heureux, Une famille heureuse')">▶</button></td>
                     </tr>
                     <tr onclick="this.style.background='#FCD116'">
                         <td>courageux</td>
                         <td>courageuse</td>
                         <td>brave</td>
                         <td><strong>Un héros courageux</strong> → <strong>Une femme courageuse</strong></td>
+                        <td class="table-audio"><button class="audio-btn-small" onclick="playFrenchAudio('Un héros courageux, Une femme courageuse')">▶</button></td>
                     </tr>
                     <tr onclick="this.style.background='#FCD116'">
                         <td>dangereux</td>
                         <td>dangereuse</td>
                         <td>dangerous</td>
                         <td><strong>Un animal dangereux</strong> → <strong>Une route dangereuse</strong></td>
+                        <td class="table-audio"><button class="audio-btn-small" onclick="playFrenchAudio('Un animal dangereux, Une route dangereuse')">▶</button></td>
                     </tr>
                 </table>
 
@@ -692,18 +849,21 @@
                         <th>Feminine</th>
                         <th>Meaning</th>
                         <th>Example Sentence</th>
+                        <th class="table-audio">Audio</th>
                     </tr>
                     <tr onclick="this.style.background='#FCD116'">
                         <td>travailleur</td>
                         <td>travailleuse</td>
                         <td>hard-working</td>
                         <td><strong>Un étudiant travailleur</strong> → <strong>Une étudiante travailleuse</strong></td>
+                        <td class="table-audio"><button class="audio-btn-small" onclick="playFrenchAudio('Un étudiant travailleur, Une étudiante travailleuse')">▶</button></td>
                     </tr>
                     <tr onclick="this.style.background='#FCD116'">
                         <td>menteur</td>
                         <td>menteuse</td>
                         <td>liar</td>
                         <td><strong>Un garçon menteur</strong> → <strong>Une fille menteuse</strong></td>
+                        <td class="table-audio"><button class="audio-btn-small" onclick="playFrenchAudio('Un garçon menteur, Une fille menteuse')">▶</button></td>
                     </tr>
                 </table>
 
@@ -714,24 +874,28 @@
                         <th>Feminine</th>
                         <th>Meaning</th>
                         <th>Example Sentence</th>
+                        <th class="table-audio">Audio</th>
                     </tr>
                     <tr onclick="this.style.background='#FCD116'">
                         <td>cher</td>
                         <td>chère</td>
                         <td>dear/expensive</td>
                         <td><strong>Un ami cher</strong> (a dear friend) → <strong>Une voiture chère</strong> (an expensive car)</td>
+                        <td class="table-audio"><button class="audio-btn-small" onclick="playFrenchAudio('Un ami cher, Une voiture chère')">▶</button></td>
                     </tr>
                     <tr onclick="this.style.background='#FCD116'">
                         <td>fier</td>
                         <td>fière</td>
                         <td>proud</td>
                         <td><strong>Un père fier</strong> → <strong>Une mère fière</strong></td>
+                        <td class="table-audio"><button class="audio-btn-small" onclick="playFrenchAudio('Un père fier, Une mère fière')">▶</button></td>
                     </tr>
                     <tr onclick="this.style.background='#FCD116'">
                         <td>étranger</td>
                         <td>étrangère</td>
                         <td>foreign/strange</td>
                         <td><strong>Un pays étranger</strong> → <strong>Une langue étrangère</strong></td>
+                        <td class="table-audio"><button class="audio-btn-small" onclick="playFrenchAudio('Un pays étranger, Une langue étrangère')">▶</button></td>
                     </tr>
                 </table>
 
@@ -742,30 +906,35 @@
                         <th>Feminine</th>
                         <th>Meaning</th>
                         <th>Example Sentence</th>
+                        <th class="table-audio">Audio</th>
                     </tr>
                     <tr onclick="this.style.background='#FCD116'">
                         <td>mignon</td>
                         <td>mignonne</td>
                         <td>cute</td>
                         <td><strong>Un bébé mignon</strong> → <strong>Une petite fille mignonne</strong></td>
+                        <td class="table-audio"><button class="audio-btn-small" onclick="playFrenchAudio('Un bébé mignon, Une petite fille mignonne')">▶</button></td>
                     </tr>
                     <tr onclick="this.style.background='#FCD116'">
                         <td>bon</td>
                         <td>bonne</td>
                         <td>good</td>
                         <td><strong>Un bon repas</strong> → <strong>Une bonne idée</strong></td>
+                        <td class="table-audio"><button class="audio-btn-small" onclick="playFrenchAudio('Un bon repas, Une bonne idée')">▶</button></td>
                     </tr>
                     <tr onclick="this.style.background='#FCD116'">
                         <td>ancien</td>
                         <td>ancienne</td>
                         <td>old/former</td>
                         <td><strong>Un ancien professeur</strong> → <strong>Une ancienne école</strong></td>
+                        <td class="table-audio"><button class="audio-btn-small" onclick="playFrenchAudio('Un ancien professeur, Une ancienne école')">▶</button></td>
                     </tr>
                     <tr onclick="this.style.background='#FCD116'">
                         <td>européen</td>
                         <td>européenne</td>
                         <td>European</td>
                         <td><strong>Un pays européen</strong> → <strong>Une ville européenne</strong></td>
+                        <td class="table-audio"><button class="audio-btn-small" onclick="playFrenchAudio('Un pays européen, Une ville européenne')">▶</button></td>
                     </tr>
                 </table>
 
@@ -776,18 +945,21 @@
                         <th>Feminine</th>
                         <th>Meaning</th>
                         <th>Example Sentence</th>
+                        <th class="table-audio">Audio</th>
                     </tr>
                     <tr onclick="this.style.background='#FCD116'">
                         <td>cruel</td>
                         <td>cruelle</td>
                         <td>cruel</td>
                         <td><strong>Un homme cruel</strong> → <strong>Une personne cruelle</strong></td>
+                        <td class="table-audio"><button class="audio-btn-small" onclick="playFrenchAudio('Un homme cruel, Une personne cruelle')">▶</button></td>
                     </tr>
                     <tr onclick="this.style.background='#FCD116'">
                         <td>réel</td>
                         <td>réelle</td>
                         <td>real</td>
                         <td><strong>Un problème réel</strong> → <strong>Une histoire réelle</strong></td>
+                        <td class="table-audio"><button class="audio-btn-small" onclick="playFrenchAudio('Un problème réel, Une histoire réelle')">▶</button></td>
                     </tr>
                 </table>
 
@@ -798,18 +970,21 @@
                         <th>Feminine</th>
                         <th>Meaning</th>
                         <th>Example Sentence</th>
+                        <th class="table-audio">Audio</th>
                     </tr>
                     <tr onclick="this.style.background='#FCD116'">
                         <td>blanc</td>
                         <td>blanche</td>
                         <td>white</td>
                         <td><strong>Un mur blanc</strong> → <strong>Une robe blanche</strong></td>
+                        <td class="table-audio"><button class="audio-btn-small" onclick="playFrenchAudio('Un mur blanc, Une robe blanche')">▶</button></td>
                     </tr>
                     <tr onclick="this.style.background='#FCD116'">
                         <td>franc</td>
                         <td>franche</td>
                         <td>frank</td>
                         <td><strong>Un homme franc</strong> → <strong>Une réponse franche</strong></td>
+                        <td class="table-audio"><button class="audio-btn-small" onclick="playFrenchAudio('Un homme franc, Une réponse franche')">▶</button></td>
                     </tr>
                 </table>
 
@@ -820,12 +995,14 @@
                         <th>Feminine</th>
                         <th>Meaning</th>
                         <th>Example Sentence</th>
+                        <th class="table-audio">Audio</th>
                     </tr>
                     <tr onclick="this.style.background='#FCD116'">
                         <td>long</td>
                         <td>longue</td>
                         <td>long</td>
                         <td><strong>Un chemin long</strong> → <strong>Une robe longue</strong></td>
+                        <td class="table-audio"><button class="audio-btn-small" onclick="playFrenchAudio('Un chemin long, Une robe longue')">▶</button></td>
                     </tr>
                 </table>
             </div>
@@ -835,73 +1012,114 @@
         <div id="unchanged" class="tab-content">
             <div class="section">
                 <h2>⚖️ The Easy Ones: Adjectives That Stay the Same!</h2>
+                <div class="audio-container">
+                    <button class="audio-btn-small" onclick="playFrenchAudio('Les adjectifs invariables')">▶</button>
+                    <span class="audio-text">Listen to French explanation</span>
+                </div>
                 <p style="font-size: 1.2em; line-height: 1.8; margin-bottom: 20px;">
                     Good news! Some adjectives don't change at all between masculine and feminine. 
                     They're the same for everyone - this makes them super easy to remember! 
                     Most of these adjectives already end in -e in their masculine form.
+                    <button class="audio-btn-small" onclick="playEnglishAudio('Good news! Some adjectives do not change at all between masculine and feminine. They are the same for everyone - this makes them super easy to remember! Most of these adjectives already end in -e in their masculine form.')">▶</button>
                 </p>
 
                 <h3>Common Unchanged Adjectives:</h3>
                 
                 <div class="interactive-card">
                     <h4 style="color: #CE1126;">facile (easy)</h4>
-                    <div class="example-item">
-                        <span class="french">un exercice facile</span> → <span class="english">an easy exercise</span>
+                    <div class="audio-example">
+                        <div class="example-item">
+                            <span class="french">un exercice facile</span> → <span class="english">an easy exercise</span>
+                        </div>
+                        <button class="audio-btn-small" onclick="playFrenchAudio('un exercice facile')">▶</button>
                     </div>
-                    <div class="example-item">
-                        <span class="french">une leçon facile</span> → <span class="english">an easy lesson</span>
+                    <div class="audio-example">
+                        <div class="example-item">
+                            <span class="french">une leçon facile</span> → <span class="english">an easy lesson</span>
+                        </div>
+                        <button class="audio-btn-small" onclick="playFrenchAudio('une leçon facile')">▶</button>
                     </div>
                     <p style="margin-top: 10px; color: #006B3F;">✓ Same spelling for both!</p>
                 </div>
 
                 <div class="interactive-card">
                     <h4 style="color: #CE1126;">rapide (fast)</h4>
-                    <div class="example-item">
-                        <span class="french">un train rapide</span> → <span class="english">a fast train</span>
+                    <div class="audio-example">
+                        <div class="example-item">
+                            <span class="french">un train rapide</span> → <span class="english">a fast train</span>
+                        </div>
+                        <button class="audio-btn-small" onclick="playFrenchAudio('un train rapide')">▶</button>
                     </div>
-                    <div class="example-item">
-                        <span class="french">une voiture rapide</span> → <span class="english">a fast car</span>
+                    <div class="audio-example">
+                        <div class="example-item">
+                            <span class="french">une voiture rapide</span> → <span class="english">a fast car</span>
+                        </div>
+                        <button class="audio-btn-small" onclick="playFrenchAudio('une voiture rapide')">▶</button>
                     </div>
                     <p style="margin-top: 10px; color: #006B3F;">✓ No change needed!</p>
                 </div>
 
                 <div class="interactive-card">
                     <h4 style="color: #CE1126;">jeune (young)</h4>
-                    <div class="example-item">
-                        <span class="french">un jeune homme</span> → <span class="english">a young man</span>
+                    <div class="audio-example">
+                        <div class="example-item">
+                            <span class="french">un jeune homme</span> → <span class="english">a young man</span>
+                        </div>
+                        <button class="audio-btn-small" onclick="playFrenchAudio('un jeune homme')">▶</button>
                     </div>
-                    <div class="example-item">
-                        <span class="french">une jeune femme</span> → <span class="english">a young woman</span>
+                    <div class="audio-example">
+                        <div class="example-item">
+                            <span class="french">une jeune femme</span> → <span class="english">a young woman</span>
+                        </div>
+                        <button class="audio-btn-small" onclick="playFrenchAudio('une jeune femme')">▶</button>
                     </div>
                 </div>
 
                 <div class="interactive-card">
                     <h4 style="color: #CE1126;">riche (rich)</h4>
-                    <div class="example-item">
-                        <span class="french">un homme riche</span> → <span class="english">a rich man</span>
+                    <div class="audio-example">
+                        <div class="example-item">
+                            <span class="french">un homme riche</span> → <span class="english">a rich man</span>
+                        </div>
+                        <button class="audio-btn-small" onclick="playFrenchAudio('un homme riche')">▶</button>
                     </div>
-                    <div class="example-item">
-                        <span class="french">une femme riche</span> → <span class="english">a rich woman</span>
+                    <div class="audio-example">
+                        <div class="example-item">
+                            <span class="french">une femme riche</span> → <span class="english">a rich woman</span>
+                        </div>
+                        <button class="audio-btn-small" onclick="playFrenchAudio('une femme riche')">▶</button>
                     </div>
                 </div>
 
                 <div class="interactive-card">
                     <h4 style="color: #CE1126;">pauvre (poor)</h4>
-                    <div class="example-item">
-                        <span class="french">un garçon pauvre</span> → <span class="english">a poor boy</span>
+                    <div class="audio-example">
+                        <div class="example-item">
+                            <span class="french">un garçon pauvre</span> → <span class="english">a poor boy</span>
+                        </div>
+                        <button class="audio-btn-small" onclick="playFrenchAudio('un garçon pauvre')">▶</button>
                     </div>
-                    <div class="example-item">
-                        <span class="french">une fille pauvre</span> → <span class="english">a poor girl</span>
+                    <div class="audio-example">
+                        <div class="example-item">
+                            <span class="french">une fille pauvre</span> → <span class="english">a poor girl</span>
+                        </div>
+                        <button class="audio-btn-small" onclick="playFrenchAudio('une fille pauvre')">▶</button>
                     </div>
                 </div>
 
                 <div class="interactive-card">
                     <h4 style="color: #CE1126;">sympa (nice) - informal</h4>
-                    <div class="example-item">
-                        <span class="french">un prof sympa</span> → <span class="english">a nice teacher (male)</span>
+                    <div class="audio-example">
+                        <div class="example-item">
+                            <span class="french">un prof sympa</span> → <span class="english">a nice teacher (male)</span>
+                        </div>
+                        <button class="audio-btn-small" onclick="playFrenchAudio('un prof sympa')">▶</button>
                     </div>
-                    <div class="example-item">
-                        <span class="french">une prof sympa</span> → <span class="english">a nice teacher (female)</span>
+                    <div class="audio-example">
+                        <div class="example-item">
+                            <span class="french">une prof sympa</span> → <span class="english">a nice teacher (female)</span>
+                        </div>
+                        <button class="audio-btn-small" onclick="playFrenchAudio('une prof sympa')">▶</button>
                     </div>
                     <div class="note">This is short for "sympathique" which also doesn't change!</div>
                 </div>
@@ -910,18 +1128,28 @@
                 <div class="example-box">
                     <p style="font-size: 1.2em; margin-bottom: 15px;">
                         Some color adjectives don't change because they come from nouns (things)!
+                        <button class="audio-btn-small" onclick="playEnglishAudio('Some color adjectives do not change because they come from nouns!')">▶</button>
                     </p>
-                    <div class="example-item">
-                        <strong>marron (brown)</strong> - from "marron" (chestnut)<br>
-                        <span class="french">un sac marron</span> / <span class="french">une veste marron</span>
+                    <div class="audio-example">
+                        <div class="example-item">
+                            <strong>marron (brown)</strong> - from "marron" (chestnut)<br>
+                            <span class="french">un sac marron</span> / <span class="french">une veste marron</span>
+                        </div>
+                        <button class="audio-btn-small" onclick="playFrenchAudio('un sac marron, une veste marron')">▶</button>
                     </div>
-                    <div class="example-item">
-                        <strong>orange (orange)</strong> - from "une orange" (the fruit)<br>
-                        <span class="french">un ballon orange</span> / <span class="french">une fleur orange</span>
+                    <div class="audio-example">
+                        <div class="example-item">
+                            <strong>orange (orange)</strong> - from "une orange" (the fruit)<br>
+                            <span class="french">un ballon orange</span> / <span class="french">une fleur orange</span>
+                        </div>
+                        <button class="audio-btn-small" onclick="playFrenchAudio('un ballon orange, une fleur orange')">▶</button>
                     </div>
-                    <div class="example-item">
-                        <strong>bleu marine (navy blue)</strong><br>
-                        <span class="french">un pantalon bleu marine</span> / <span class="french">une jupe bleu marine</span>
+                    <div class="audio-example">
+                        <div class="example-item">
+                            <strong>bleu marine (navy blue)</strong><br>
+                            <span class="french">un pantalon bleu marine</span> / <span class="french">une jupe bleu marine</span>
+                        </div>
+                        <button class="audio-btn-small" onclick="playFrenchAudio('un pantalon bleu marine, une jupe bleu marine')">▶</button>
                     </div>
                 </div>
             </div>
@@ -931,9 +1159,14 @@
         <div id="position" class="tab-content">
             <div class="section">
                 <h2>🎯 Where to Place Adjectives in Sentences</h2>
+                <div class="audio-container">
+                    <button class="audio-btn-small" onclick="playFrenchAudio('La position des adjectifs')">▶</button>
+                    <span class="audio-text">Listen to French explanation</span>
+                </div>
                 <p style="font-size: 1.2em; line-height: 1.8; margin-bottom: 20px;">
                     In French, most adjectives come AFTER the noun they describe. But some special ones come BEFORE the noun. 
                     Remember the BANGS rule to know which ones go before!
+                    <button class="audio-btn-small" onclick="playEnglishAudio('In French, most adjectives come AFTER the noun they describe. But some special ones come BEFORE the noun. Remember the BANGS rule to know which ones go before!')">▶</button>
                 </p>
 
                 <div class="bangs-rule">
@@ -941,38 +1174,55 @@
                     <div class="bangs-item">
                         <strong>B</strong> - Beauty: beau (beautiful), joli (pretty)<br>
                         <span class="french">un beau garçon</span> (a handsome boy) / <span class="french">une belle fille</span> (a beautiful girl)
+                        <button class="audio-btn-small" onclick="playFrenchAudio('un beau garçon, une belle fille')">▶</button>
                     </div>
                     <div class="bangs-item">
                         <strong>A</strong> - Age: jeune (young), vieux (old), nouveau (new)<br>
                         <span class="french">un vieil homme</span> (an old man) / <span class="french">une nouvelle maison</span> (a new house)
+                        <button class="audio-btn-small" onclick="playFrenchAudio('un vieil homme, une nouvelle maison')">▶</button>
                     </div>
                     <div class="bangs-item">
                         <strong>N</strong> - Number: premier (first), deuxième (second)<br>
                         <span class="french">le premier jour</span> (the first day) / <span class="french">la deuxième fois</span> (the second time)
+                        <button class="audio-btn-small" onclick="playFrenchAudio('le premier jour, la deuxième fois')">▶</button>
                     </div>
                     <div class="bangs-item">
                         <strong>G</strong> - Goodness: bon (good), mauvais (bad)<br>
                         <span class="french">un bon livre</span> (a good book) / <span class="french">une mauvaise idée</span> (a bad idea)
+                        <button class="audio-btn-small" onclick="playFrenchAudio('un bon livre, une mauvaise idée')">▶</button>
                     </div>
                     <div class="bangs-item">
                         <strong>S</strong> - Size: grand (big), petit (small)<br>
                         <span class="french">un petit chien</span> (a small dog) / <span class="french">une grande ville</span> (a big city)
+                        <button class="audio-btn-small" onclick="playFrenchAudio('un petit chien, une grande ville')">▶</button>
                     </div>
                 </div>
 
                 <h3>Most Adjectives Come AFTER the Noun:</h3>
                 <div class="example-box">
-                    <div class="example-item">
-                        <span class="french">une maison blanche</span> → <span class="english">a white house</span>
+                    <div class="audio-example">
+                        <div class="example-item">
+                            <span class="french">une maison blanche</span> → <span class="english">a white house</span>
+                        </div>
+                        <button class="audio-btn-small" onclick="playFrenchAudio('une maison blanche')">▶</button>
                     </div>
-                    <div class="example-item">
-                        <span class="french">un livre intéressant</span> → <span class="english">an interesting book</span>
+                    <div class="audio-example">
+                        <div class="example-item">
+                            <span class="french">un livre intéressant</span> → <span class="english">an interesting book</span>
+                        </div>
+                        <button class="audio-btn-small" onclick="playFrenchAudio('un livre intéressant')">▶</button>
                     </div>
-                    <div class="example-item">
-                        <span class="french">une voiture rapide</span> → <span class="english">a fast car</span>
+                    <div class="audio-example">
+                        <div class="example-item">
+                            <span class="french">une voiture rapide</span> → <span class="english">a fast car</span>
+                        </div>
+                        <button class="audio-btn-small" onclick="playFrenchAudio('une voiture rapide')">▶</button>
                     </div>
-                    <div class="example-item">
-                        <span class="french">un homme courageux</span> → <span class="english">a brave man</span>
+                    <div class="audio-example">
+                        <div class="example-item">
+                            <span class="french">un homme courageux</span> → <span class="english">a brave man</span>
+                        </div>
+                        <button class="audio-btn-small" onclick="playFrenchAudio('un homme courageux')">▶</button>
                     </div>
                 </div>
 
@@ -997,6 +1247,9 @@
                             </div>
                         </div>
                     </div>
+                    <button class="audio-btn" onclick="playFrenchAudio('beau, vieux, premier, blanche, intéressant, rapide')" style="margin-top: 15px;">
+                        <span>▶</span> Hear All Words
+                    </button>
                 </div>
             </div>
         </div>
@@ -1005,9 +1258,14 @@
         <div id="irregular" class="tab-content">
             <div class="section">
                 <h2>🧩 Irregular Adjectives - Special Cases!</h2>
+                <div class="audio-container">
+                    <button class="audio-btn-small" onclick="playFrenchAudio('Les adjectifs irréguliers')">▶</button>
+                    <span class="audio-text">Listen to French explanation</span>
+                </div>
                 <p style="font-size: 1.2em; line-height: 1.8; margin-bottom: 20px;">
                     Some French adjectives don't follow the regular patterns - they change completely between masculine and feminine forms. 
                     These are the "rebels" of French grammar! But don't worry, with practice, you'll master them too.
+                    <button class="audio-btn-small" onclick="playEnglishAudio('Some French adjectives do not follow the regular patterns - they change completely between masculine and feminine forms. These are the rebels of French grammar! But do not worry, with practice, you will master them too.')">▶</button>
                 </p>
 
                 <h3>Common Irregular Adjectives:</h3>
@@ -1017,66 +1275,77 @@
                         <th>Feminine</th>
                         <th>Meaning</th>
                         <th>Example Sentence</th>
+                        <th class="table-audio">Audio</th>
                     </tr>
                     <tr onclick="this.style.background='#FCD116'">
                         <td>beau</td>
                         <td>belle</td>
                         <td>beautiful/handsome</td>
                         <td><strong>Un beau garçon</strong> → <strong>Une belle fille</strong></td>
+                        <td class="table-audio"><button class="audio-btn-small" onclick="playFrenchAudio('Un beau garçon, Une belle fille')">▶</button></td>
                     </tr>
                     <tr onclick="this.style.background='#FCD116'">
                         <td>nouveau</td>
                         <td>nouvelle</td>
                         <td>new</td>
                         <td><strong>Un nouveau livre</strong> → <strong>Une nouvelle idée</strong></td>
+                        <td class="table-audio"><button class="audio-btn-small" onclick="playFrenchAudio('Un nouveau livre, Une nouvelle idée')">▶</button></td>
                     </tr>
                     <tr onclick="this.style.background='#FCD116'">
                         <td>vieux</td>
                         <td>vieille</td>
                         <td>old</td>
                         <td><strong>Un vieux monsieur</strong> → <strong>Une vieille dame</strong></td>
+                        <td class="table-audio"><button class="audio-btn-small" onclick="playFrenchAudio('Un vieux monsieur, Une vieille dame')">▶</button></td>
                     </tr>
                     <tr onclick="this.style.background='#FCD116'">
                         <td>fou</td>
                         <td>folle</td>
                         <td>crazy</td>
                         <td><strong>Un fou rire</strong> → <strong>Une folle histoire</strong></td>
+                        <td class="table-audio"><button class="audio-btn-small" onclick="playFrenchAudio('Un fou rire, Une folle histoire')">▶</button></td>
                     </tr>
                     <tr onclick="this.style.background='#FCD116'">
                         <td>mou</td>
                         <td>molle</td>
                         <td>soft</td>
                         <td><strong>Un vent mou</strong> → <strong>Une réponse molle</strong></td>
+                        <td class="table-audio"><button class="audio-btn-small" onclick="playFrenchAudio('Un vent mou, Une réponse molle')">▶</button></td>
                     </tr>
                     <tr onclick="this.style.background='#FCD116'">
                         <td>blanc</td>
                         <td>blanche</td>
                         <td>white</td>
                         <td><strong>Un mur blanc</strong> → <strong>Une robe blanche</strong></td>
+                        <td class="table-audio"><button class="audio-btn-small" onclick="playFrenchAudio('Un mur blanc, Une robe blanche')">▶</button></td>
                     </tr>
                     <tr onclick="this.style.background='#FCD116'">
                         <td>sec</td>
                         <td>sèche</td>
                         <td>dry</td>
                         <td><strong>Un pain sec</strong> → <strong>Une peau sèche</strong></td>
+                        <td class="table-audio"><button class="audio-btn-small" onclick="playFrenchAudio('Un pain sec, Une peau sèche')">▶</button></td>
                     </tr>
                     <tr onclick="this.style.background='#FCD116'">
                         <td>frais</td>
                         <td>fraîche</td>
                         <td>fresh/cool</td>
                         <td><strong>Un air frais</strong> → <strong>Une salade fraîche</strong></td>
+                        <td class="table-audio"><button class="audio-btn-small" onclick="playFrenchAudio('Un air frais, Une salade fraîche')">▶</button></td>
                     </tr>
                     <tr onclick="this.style.background='#FCD116'">
                         <td>doux</td>
                         <td>douce</td>
                         <td>soft/sweet</td>
                         <td><strong>Un vent doux</strong> → <strong>Une voix douce</strong></td>
+                        <td class="table-audio"><button class="audio-btn-small" onclick="playFrenchAudio('Un vent doux, Une voix douce')">▶</button></td>
                     </tr>
                     <tr onclick="this.style.background='#FCD116'">
                         <td>long</td>
                         <td>longue</td>
                         <td>long</td>
                         <td><strong>Un chemin long</strong> → <strong>Une robe longue</strong></td>
+                        <td class="table-audio"><button class="audio-btn-small" onclick="playFrenchAudio('Un chemin long, Une robe longue')">▶</button></td>
                     </tr>
                 </table>
 
@@ -1084,60 +1353,73 @@
                 <div class="example-box">
                     <p style="font-size: 1.2em; margin-bottom: 15px;">
                         Some irregular adjectives change form when they come before a vowel sound!
+                        <button class="audio-btn-small" onclick="playEnglishAudio('Some irregular adjectives change form when they come before a vowel sound!')">▶</button>
                     </p>
-                    <div class="example-item">
-                        <strong>beau → bel</strong> before a vowel<br>
-                        <span class="french">un bel arbre</span> (a beautiful tree) instead of <span class="french">un beau arbre</span>
+                    <div class="audio-example">
+                        <div class="example-item">
+                            <strong>beau → bel</strong> before a vowel<br>
+                            <span class="french">un bel arbre</span> (a beautiful tree) instead of <span class="french">un beau arbre</span>
+                        </div>
+                        <button class="audio-btn-small" onclick="playFrenchAudio('un bel arbre, un beau arbre')">▶</button>
                     </div>
-                    <div class="example-item">
-                        <strong>nouveau → nouvel</strong> before a vowel<br>
-                        <span class="french">un nouvel ami</span> (a new friend) instead of <span class="french">un nouveau ami</span>
+                    <div class="audio-example">
+                        <div class="example-item">
+                            <strong>nouveau → nouvel</strong> before a vowel<br>
+                            <span class="french">un nouvel ami</span> (a new friend) instead of <span class="french">un nouveau ami</span>
+                        </div>
+                        <button class="audio-btn-small" onclick="playFrenchAudio('un nouvel ami, un nouveau ami')">▶</button>
                     </div>
-                    <div class="example-item">
-                        <strong>vieux → vieil</strong> before a vowel<br>
-                        <span class="french">un vieil homme</span> (an old man) instead of <span class="french">un vieux homme</span>
+                    <div class="audio-example">
+                        <div class="example-item">
+                            <strong>vieux → vieil</strong> before a vowel<br>
+                            <span class="french">un vieil homme</span> (an old man) instead of <span class="french">un vieux homme</span>
+                        </div>
+                        <button class="audio-btn-small" onclick="playFrenchAudio('un vieil homme, un vieux homme')">▶</button>
                     </div>
                 </div>
 
                 <h3>🎮 Memory Game: Match the Pairs!</h3>
                 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 15px; margin: 20px 0;">
-                    <div class="flip-card memory-card" onclick="flipMemoryCard(this)">
+                    <div class="flip-card memory-card" onclick="flipMemoryCard(this); playFrenchAudio('beau, belle')">
                         <div class="flip-card-inner">
                             <div class="flip-card-front">beau</div>
                             <div class="flip-card-back">belle</div>
                         </div>
                     </div>
-                    <div class="flip-card memory-card" onclick="flipMemoryCard(this)">
+                    <div class="flip-card memory-card" onclick="flipMemoryCard(this); playFrenchAudio('nouveau, nouvelle')">
                         <div class="flip-card-inner">
                             <div class="flip-card-front">nouveau</div>
                             <div class="flip-card-back">nouvelle</div>
                         </div>
                     </div>
-                    <div class="flip-card memory-card" onclick="flipMemoryCard(this)">
+                    <div class="flip-card memory-card" onclick="flipMemoryCard(this); playFrenchAudio('vieux, vieille')">
                         <div class="flip-card-inner">
                             <div class="flip-card-front">vieux</div>
                             <div class="flip-card-back">vieille</div>
                         </div>
                     </div>
-                    <div class="flip-card memory-card" onclick="flipMemoryCard(this)">
+                    <div class="flip-card memory-card" onclick="flipMemoryCard(this); playFrenchAudio('fou, folle')">
                         <div class="flip-card-inner">
                             <div class="flip-card-front">fou</div>
                             <div class="flip-card-back">folle</div>
                         </div>
                     </div>
-                    <div class="flip-card memory-card" onclick="flipMemoryCard(this)">
+                    <div class="flip-card memory-card" onclick="flipMemoryCard(this); playFrenchAudio('blanc, blanche')">
                         <div class="flip-card-inner">
                             <div class="flip-card-front">blanc</div>
                             <div class="flip-card-back">blanche</div>
                         </div>
                     </div>
-                    <div class="flip-card memory-card" onclick="flipMemoryCard(this)">
+                    <div class="flip-card memory-card" onclick="flipMemoryCard(this); playFrenchAudio('doux, douce')">
                         <div class="flip-card-inner">
                             <div class="flip-card-front">doux</div>
                             <div class="flip-card-back">douce</div>
                         </div>
                     </div>
                 </div>
+                <button class="audio-btn" onclick="playFrenchAudio('beau, belle, nouveau, nouvelle, vieux, vieille, fou, folle, blanc, blanche, doux, douce')">
+                    <span>▶</span> Hear All Irregular Pairs
+                </button>
             </div>
         </div>
 
@@ -1145,39 +1427,44 @@
         <div id="colors" class="tab-content">
             <div class="section">
                 <h2>🎨 Colors in French - With Ghanaian Inspiration!</h2>
+                <div class="audio-container">
+                    <button class="audio-btn-small" onclick="playFrenchAudio('Les couleurs en français')">▶</button>
+                    <span class="audio-text">Listen to French explanation</span>
+                </div>
                 <p style="font-size: 1.2em; line-height: 1.8; margin-bottom: 20px;">
                     Colors in French follow special rules. Most change according to gender and number, 
                     but some don't change at all! Let's explore them with colors inspired by Ghana's vibrant culture.
+                    <button class="audio-btn-small" onclick="playEnglishAudio('Colors in French follow special rules. Most change according to gender and number, but some do not change at all! Let us explore them with colors inspired by Ghanas vibrant culture.')">▶</button>
                 </p>
 
                 <h3>Colors That Change (Regular Adjectives):</h3>
                 <div class="color-palette">
-                    <div class="color-card" style="background: #CE1126;" onclick="showColorDetails('rouge', 'red', '#CE1126')">
+                    <div class="color-card" style="background: #CE1126;" onclick="showColorDetails('rouge', 'red', '#CE1126'); playFrenchAudio('rouge')">
                         <div class="color-name">Red</div>
                         <div class="color-french">rouge / rouge</div>
                         <div style="margin-top: 10px;">🇬🇭 Ghana Flag</div>
                     </div>
-                    <div class="color-card" style="background: #FCD116;" onclick="showColorDetails('jaune', 'yellow', '#FCD116')">
+                    <div class="color-card" style="background: #FCD116;" onclick="showColorDetails('jaune', 'yellow', '#FCD116'); playFrenchAudio('jaune')">
                         <div class="color-name">Yellow</div>
                         <div class="color-french">jaune / jaune</div>
                         <div style="margin-top: 10px;">🇬🇭 Ghana Flag</div>
                     </div>
-                    <div class="color-card" style="background: #006B3F;" onclick="showColorDetails('vert', 'green', '#006B3F')">
+                    <div class="color-card" style="background: #006B3F;" onclick="showColorDetails('vert', 'green', '#006B3F'); playFrenchAudio('vert, verte')">
                         <div class="color-name">Green</div>
                         <div class="color-french">vert / verte</div>
                         <div style="margin-top: 10px;">🇬🇭 Ghana Flag</div>
                     </div>
-                    <div class="color-card" style="background: #000000; color: white;" onclick="showColorDetails('noir', 'black', '#000000')">
+                    <div class="color-card" style="background: #000000; color: white;" onclick="showColorDetails('noir', 'black', '#000000'); playFrenchAudio('noir, noire')">
                         <div class="color-name">Black</div>
                         <div class="color-french">noir / noire</div>
                         <div style="margin-top: 10px;">🇬🇭 Ghana Flag</div>
                     </div>
-                    <div class="color-card" style="background: #FFFFFF; color: #000;" onclick="showColorDetails('blanc', 'white', '#FFFFFF')">
+                    <div class="color-card" style="background: #FFFFFF; color: #000;" onclick="showColorDetails('blanc', 'white', '#FFFFFF'); playFrenchAudio('blanc, blanche')">
                         <div class="color-name">White</div>
                         <div class="color-french">blanc / blanche</div>
                         <div style="margin-top: 10px;">🇬🇭 Kente Cloth</div>
                     </div>
-                    <div class="color-card" style="background: #0000FF; color: white;" onclick="showColorDetails('bleu', 'blue', '#0000FF')">
+                    <div class="color-card" style="background: #0000FF; color: white;" onclick="showColorDetails('bleu', 'blue', '#0000FF'); playFrenchAudio('bleu, bleue')">
                         <div class="color-name">Blue</div>
                         <div class="color-french">bleu / bleue</div>
                         <div style="margin-top: 10px;">🇬🇭 Ocean</div>
@@ -1186,22 +1473,22 @@
 
                 <h3>Colors That Don't Change (Invariable):</h3>
                 <div class="color-palette">
-                    <div class="color-card" style="background: #FFA500;" onclick="showColorDetails('orange', 'orange', '#FFA500')">
+                    <div class="color-card" style="background: #FFA500;" onclick="showColorDetails('orange', 'orange', '#FFA500'); playFrenchAudio('orange')">
                         <div class="color-name">Orange</div>
                         <div class="color-french">orange / orange</div>
                         <div style="margin-top: 10px;">🇬🇭 Tropical Fruit</div>
                     </div>
-                    <div class="color-card" style="background: #800080; color: white;" onclick="showColorDetails('violet', 'purple', '#800080')">
+                    <div class="color-card" style="background: #800080; color: white;" onclick="showColorDetails('violet', 'purple', '#800080'); playFrenchAudio('violet, violette')">
                         <div class="color-name">Purple</div>
                         <div class="color-french">violet / violette</div>
                         <div style="margin-top: 10px;">🇬🇭 Royal Color</div>
                     </div>
-                    <div class="color-card" style="background: #FFC0CB;" onclick="showColorDetails('rose', 'pink', '#FFC0CB')">
+                    <div class="color-card" style="background: #FFC0CB;" onclick="showColorDetails('rose', 'pink', '#FFC0CB'); playFrenchAudio('rose')">
                         <div class="color-name">Pink</div>
                         <div class="color-french">rose / rose</div>
                         <div style="margin-top: 10px;">🇬🇭 Hibiscus Flower</div>
                     </div>
-                    <div class="color-card" style="background: #964B00; color: white;" onclick="showColorDetails('marron', 'brown', '#964B00')">
+                    <div class="color-card" style="background: #964B00; color: white;" onclick="showColorDetails('marron', 'brown', '#964B00'); playFrenchAudio('marron')">
                         <div class="color-name">Brown</div>
                         <div class="color-french">marron / marron</div>
                         <div style="margin-top: 10px;">🇬🇭 Rich Soil</div>
@@ -1223,16 +1510,23 @@
                 <div class="example-box">
                     <p style="font-size: 1.2em; margin-bottom: 15px;">
                         When you combine colors, neither changes form:
+                        <button class="audio-btn-small" onclick="playEnglishAudio('When you combine colors, neither changes form!')">▶</button>
                     </p>
-                    <div class="example-item">
-                        <span class="french">bleu clair</span> → light blue<br>
-                        <span class="french">vert foncé</span> → dark green<br>
-                        <span class="french">rouge vif</span> → bright red
+                    <div class="audio-example">
+                        <div class="example-item">
+                            <span class="french">bleu clair</span> → light blue<br>
+                            <span class="french">vert foncé</span> → dark green<br>
+                            <span class="french">rouge vif</span> → bright red
+                        </div>
+                        <button class="audio-btn-small" onclick="playFrenchAudio('bleu clair, vert foncé, rouge vif')">▶</button>
                     </div>
-                    <div class="example-item">
-                        <strong>Examples:</strong><br>
-                        <span class="french">une voiture bleu clair</span> (a light blue car)<br>
-                        <span class="french">un sac vert foncé</span> (a dark green bag)
+                    <div class="audio-example">
+                        <div class="example-item">
+                            <strong>Examples:</strong><br>
+                            <span class="french">une voiture bleu clair</span> (a light blue car)<br>
+                            <span class="french">un sac vert foncé</span> (a dark green bag)
+                        </div>
+                        <button class="audio-btn-small" onclick="playFrenchAudio('une voiture bleu clair, un sac vert foncé')">▶</button>
                     </div>
                 </div>
             </div>
@@ -1242,9 +1536,14 @@
         <div id="quiz" class="tab-content">
             <div class="section">
                 <h2>🎮 Test Your Knowledge - French Adjectives Quiz!</h2>
+                <div class="audio-container">
+                    <button class="audio-btn-small" onclick="playFrenchAudio('Quiz sur les adjectifs français')">▶</button>
+                    <span class="audio-text">Listen to French explanation</span>
+                </div>
                 <p style="font-size: 1.2em; line-height: 1.8; margin-bottom: 20px;">
                     Ready to test what you've learned? Take this quiz to practice French adjectives! 
                     You'll get instant feedback on your answers.
+                    <button class="audio-btn-small" onclick="playEnglishAudio('Ready to test what you have learned? Take this quiz to practice French adjectives! You will get instant feedback on your answers.')">▶</button>
                 </p>
 
                 <div class="quiz-container">
@@ -1258,6 +1557,9 @@
                             <button class="option-btn" onclick="checkAnswer(this, 'wrong', 1)">petit</button>
                             <button class="option-btn" onclick="checkAnswer(this, 'wrong', 1)">petita</button>
                         </div>
+                        <button class="audio-btn" onclick="playFrenchAudio('petit, petite')" style="margin-top: 10px;">
+                            <span>▶</span> Hear the words
+                        </button>
                     </div>
 
                     <div id="question-2" class="question" style="display: none;">
@@ -1268,6 +1570,9 @@
                             <button class="option-btn" onclick="checkAnswer(this, 'wrong', 2)">blanc</button>
                             <button class="option-btn" onclick="checkAnswer(this, 'wrong', 2)">rapide</button>
                         </div>
+                        <button class="audio-btn" onclick="playFrenchAudio('intéressant, beau, blanc, rapide')" style="margin-top: 10px;">
+                            <span>▶</span> Hear the words
+                        </button>
                     </div>
 
                     <div id="question-3" class="question" style="display: none;">
@@ -1278,6 +1583,9 @@
                             <button class="option-btn" onclick="checkAnswer(this, 'wrong', 3)">heureux</button>
                             <button class="option-btn" onclick="checkAnswer(this, 'wrong', 3)">heureuse</button>
                         </div>
+                        <button class="audio-btn" onclick="playFrenchAudio('heureux, heureuse')" style="margin-top: 10px;">
+                            <span>▶</span> Hear the words
+                        </button>
                     </div>
 
                     <div id="question-4" class="question" style="display: none;">
@@ -1288,6 +1596,9 @@
                             <button class="option-btn" onclick="checkAnswer(this, 'correct', 4)">orange</button>
                             <button class="option-btn" onclick="checkAnswer(this, 'wrong', 4)">noir</button>
                         </div>
+                        <button class="audio-btn" onclick="playFrenchAudio('vert, blanc, orange, noir')" style="margin-top: 10px;">
+                            <span>▶</span> Hear the words
+                        </button>
                     </div>
 
                     <div id="question-5" class="question" style="display: none;">
@@ -1298,6 +1609,9 @@
                             <button class="option-btn" onclick="checkAnswer(this, 'wrong', 5)">sportif</button>
                             <button class="option-btn" onclick="checkAnswer(this, 'wrong', 5)">sportiffe</button>
                         </div>
+                        <button class="audio-btn" onclick="playFrenchAudio('sportif, sportive')" style="margin-top: 10px;">
+                            <span>▶</span> Hear the words
+                        </button>
                     </div>
 
                     <div id="question-6" class="question" style="display: none;">
@@ -1308,6 +1622,9 @@
                             <button class="option-btn" onclick="checkAnswer(this, 'wrong', 6)">grand</button>
                             <button class="option-btn" onclick="checkAnswer(this, 'wrong', 6)">fort</button>
                         </div>
+                        <button class="audio-btn" onclick="playFrenchAudio('petit, beau, grand, fort')" style="margin-top: 10px;">
+                            <span>▶</span> Hear the words
+                        </button>
                     </div>
 
                     <div id="question-7" class="question" style="display: none;">
@@ -1318,6 +1635,9 @@
                             <button class="option-btn" onclick="checkAnswer(this, 'wrong', 7)">vieil</button>
                             <button class="option-btn" onclick="checkAnswer(this, 'wrong', 7)">vielle</button>
                         </div>
+                        <button class="audio-btn" onclick="playFrenchAudio('vieux, vieille')" style="margin-top: 10px;">
+                            <span>▶</span> Hear the words
+                        </button>
                     </div>
 
                     <div id="question-8" class="question" style="display: none;">
@@ -1328,6 +1648,9 @@
                             <button class="option-btn" onclick="checkAnswer(this, 'wrong', 8)">petit</button>
                             <button class="option-btn" onclick="checkAnswer(this, 'wrong', 8)">fort</button>
                         </div>
+                        <button class="audio-btn" onclick="playFrenchAudio('grand, jeune, petit, fort')" style="margin-top: 10px;">
+                            <span>▶</span> Hear the words
+                        </button>
                     </div>
 
                     <div id="question-9" class="question" style="display: none;">
@@ -1338,6 +1661,9 @@
                             <button class="option-btn" onclick="checkAnswer(this, 'wrong', 9)">actif</button>
                             <button class="option-btn" onclick="checkAnswer(this, 'wrong', 9)">actiffe</button>
                         </div>
+                        <button class="audio-btn" onclick="playFrenchAudio('actif, active')" style="margin-top: 10px;">
+                            <span>▶</span> Hear the words
+                        </button>
                     </div>
 
                     <div id="question-10" class="question" style="display: none;">
@@ -1348,6 +1674,9 @@
                             <button class="option-btn" onclick="checkAnswer(this, 'correct', 10)">intéressant</button>
                             <button class="option-btn" onclick="checkAnswer(this, 'wrong', 10)">bon</button>
                         </div>
+                        <button class="audio-btn" onclick="playFrenchAudio('beau, vieux, intéressant, bon')" style="margin-top: 10px;">
+                            <span>▶</span> Hear the words
+                        </button>
                     </div>
 
                     <div id="quiz-complete" style="display: none; text-align: center;">
@@ -1385,6 +1714,89 @@
             event.currentTarget.classList.add('active');
         }
 
+        // Audio functionality
+        let backgroundAudio = null;
+        let isBackgroundAudioPlaying = false;
+
+        function toggleBackgroundAudio() {
+            const btn = document.getElementById('bg-audio-btn');
+            
+            if (!backgroundAudio) {
+                // Create background audio (you would replace this with actual audio file)
+                backgroundAudio = new Audio();
+                // For demo purposes, we'll use a placeholder
+                // In a real implementation, you would set backgroundAudio.src to your audio file
+                console.log("Background audio would play here");
+            }
+            
+            if (isBackgroundAudioPlaying) {
+                backgroundAudio.pause();
+                btn.classList.remove('playing');
+                isBackgroundAudioPlaying = false;
+            } else {
+                backgroundAudio.play().catch(e => {
+                    console.log("Audio play failed:", e);
+                    // Fallback for browsers that block autoplay
+                    alert("Please click the audio button again to play background music");
+                });
+                btn.classList.add('playing');
+                isBackgroundAudioPlaying = true;
+            }
+        }
+
+        // Text-to-speech for English explanations
+        function playEnglishAudio(text) {
+            if ('speechSynthesis' in window) {
+                // Stop any ongoing speech
+                window.speechSynthesis.cancel();
+                
+                const utterance = new SpeechSynthesisUtterance(text);
+                utterance.lang = 'en-US';
+                utterance.rate = 0.9;
+                utterance.pitch = 1;
+                
+                window.speechSynthesis.speak(utterance);
+            } else {
+                alert("Text-to-speech is not supported in your browser");
+            }
+        }
+
+        // French text-to-speech
+        function playFrenchAudio(text) {
+            if ('speechSynthesis' in window) {
+                // Stop any ongoing speech
+                window.speechSynthesis.cancel();
+                
+                const utterance = new SpeechSynthesisUtterance(text);
+                utterance.lang = 'fr-FR';
+                utterance.rate = 0.8;
+                utterance.pitch = 1;
+                
+                window.speechSynthesis.speak(utterance);
+            } else {
+                alert("Text-to-speech is not supported in your browser");
+            }
+        }
+
+        // Stop all audio
+        function stopAllAudio() {
+            if ('speechSynthesis' in window) {
+                window.speechSynthesis.cancel();
+            }
+            if (backgroundAudio) {
+                backgroundAudio.pause();
+                document.getElementById('bg-audio-btn').classList.remove('playing');
+                isBackgroundAudioPlaying = false;
+            }
+        }
+
+        // Read all content on the current tab
+        function speakAllContent() {
+            const activeTab = document.querySelector('.tab-content.active');
+            const textContent = activeTab.innerText;
+            playEnglishAudio(textContent);
+        }
+
         // Quiz functionality
         let currentQuestion = 1;
         let score = 0;
@@ -1402,6 +1814,7 @@
                 button.classList.add('correct');
                 score++;
                 document.getElementById('quiz-score').textContent = score;
+                playEnglishAudio("Correct! Well done!");
             } else {
                 button.classList.add('wrong');
                 // Find and highlight the correct answer
@@ -1410,6 +1823,7 @@
                         options[i].classList.add('correct');
                     }
                 }
+                playEnglishAudio("That's not quite right. Let's try another question.");
             }
             
             // Show next button
@@ -1434,12 +1848,16 @@
                 const feedback = document.getElementById('quiz-feedback');
                 if (score >= 9) {
                     feedback.innerHTML = '<div style="color: #006B3F; font-weight: bold;">Excellent! You\'re a French adjective master! 🏆</div>';
+                    playEnglishAudio("Excellent! You're a French adjective master!");
                 } else if (score >= 7) {
                     feedback.innerHTML = '<div style="color: #FCD116; font-weight: bold;">Great job! You understand French adjectives well! 🌟</div>';
+                    playEnglishAudio("Great job! You understand French adjectives well!");
                 } else if (score >= 5) {
                     feedback.innerHTML = '<div style="color: #CE1126; font-weight: bold;">Good effort! Keep practicing to improve! 💪</div>';
+                    playEnglishAudio("Good effort! Keep practicing to improve!");
                 } else {
                     feedback.innerHTML = '<div style="color: #CE1126; font-weight: bold;">Keep studying! Review the lessons and try again! 📚</div>';
+                    playEnglishAudio("Keep studying! Review the lessons and try again!");
                 }
                 
                 document.getElementById('next-btn').style.display = 'none';
@@ -1638,6 +2056,20 @@
                     }
                 }, { offset: Number.NEGATIVE_INFINITY }).element;
             }
+        });
+
+        // Initialize audio buttons with visual feedback
+        document.addEventListener('DOMContentLoaded', function() {
+            const audioButtons = document.querySelectorAll('.audio-btn, .audio-btn-small');
+            audioButtons.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    // Add visual feedback for audio playing
+                    this.classList.add('playing');
+                    setTimeout(() => {
+                        this.classList.remove('playing');
+                    }, 1000);
+                });
+            });
         });
     </script>
 </body>
